@@ -20,10 +20,10 @@ vim.g.maplocalleader = " "
 -- general
 keymap("n", "k", "i", opts)
 keymap("n", "K", "I", opts)
-keymap("n", "i", "", opts)
-keymap("n", "I", "", opts)
+-- keymap("n", "i", "", opts)
+-- keymap("n", "I", "", opts)
 keymap("n", "U", ":redo<CR>", opts)
-keymap("n", "<C-r>", "", opts)
+-- keymap("n", "<C-r>", "", opts)
 keymap("n", ",", "n", opts)
 keymap("n", ".", "N", opts)
 
@@ -33,7 +33,7 @@ keymap("", "n", "j", opts)
 keymap("", "e", "k", opts)
 keymap("", "i", "l", opts)
 -- keymap("", "h", "", opts)
-keymap("", "j", "", opts)
+-- keymap("", "j", "", opts)
 -- keymap("", "k", "", opts)
 -- keymap("", "l", "", opts)
 
@@ -45,8 +45,8 @@ keymap("", "I", "$", opts)
 -- keymap("n", "<C-E>", "<C-y>", opts)
 -- keymap("n", "<C-U>", "<C-e>", opts)
 
--- -- Normal --
--- -- Better window navigation
+-- Normal --
+ -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-n>", "<C-w>j", opts)
 keymap("n", "<C-e>", "<C-w>k", opts)
@@ -112,8 +112,8 @@ keymap("x", "P", "\"*P", opts)
 -- macro
 keymap("", "Q", "@q", opts)
 
-keymap("n", "<Tab>", "<CMD>bnext<CR>", opts)
-keymap("i", "<Tab>", "<Tab>", opts)
-keymap("n", "<S-Tab>", "<CMD>bprevious<CR>", opts)
+keymap("n", "l", "<CMD>bnext<CR>", opts)
+keymap("n", "<S-l>", "<CMD>bprevious<CR>", opts)
+keymap("i", "<S-Tab>", "<Tab>", opts)
 keymap("v", "<Tab>", ">gv", opts)
 keymap("v", "<S-Tab>", "<gv", opts)
