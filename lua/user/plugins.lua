@@ -66,10 +66,17 @@ return packer.startup(function(use)
       require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
+  use "norcalli/nvim-colorizer.lua"
+  use "rcarriga/nvim-notify"
+  use "wincent/scalpel"
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "haishanh/night-owl.vim"
+  use "EdenEast/nightfox.nvim"
+  use "sainnhe/sonokai"
+  use "folke/tokyonight.nvim"
 
   -- completions
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -94,16 +101,14 @@ return packer.startup(function(use)
     }
   }
 
-
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
@@ -114,6 +119,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "p00f/nvim-ts-rainbow"
 
   -- Git
   use "lewis6991/gitsigns.nvim"

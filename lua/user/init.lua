@@ -19,5 +19,8 @@ require("user.alpha")
 require("user.whichkey")
 require("user.autocommands")
 require("user.hopcfg")
+require("user.colorizer")
+require("user.nvim-notify")
+require("user.scaple-cfg")
 
 require("user.keymaps")

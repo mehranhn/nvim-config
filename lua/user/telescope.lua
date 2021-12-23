@@ -14,7 +14,7 @@ telescope.setup {
 
     mappings = {
       i = {
-        ["<C-v>"] = actions.cycle_history_next,
+        ["<C-f>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
 
         ["<C-n>"] = actions.move_selection_next,
@@ -27,7 +27,7 @@ telescope.setup {
 
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
-        ["<C-X>"] = actions.select_vertical,
+        ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
         ["<C-l>"] = actions.preview_scrolling_up,
