@@ -29,6 +29,10 @@ vim.g.maplocalleader = " "
 -- general
 nxomap("k", "i", {noremap = true})
 nxomap("K", "I", {noremap = true})
+nxomap("i", "<NOP>", {noremap = true})
+nxomap("I", "<NOP>", {noremap = true})
+nxomap("l", "<NOP>", {noremap = true})
+nxomap("L", "<NOP>", {noremap = true})
 keymap("n", "U", "<CMD>redo<CR>", opts)
 -- keymap("n", "<C-r>", "<Nop>", opts)
 keymap("n", ",", "n", opts)
@@ -45,8 +49,8 @@ nxomap("N", "5<DOWN>", opts)
 nxomap("E", "5<UP>", opts)
 nxomap("I", "<END>", opts)
 
-keymap("n", "<C-E>", "<C-y>", opts)
-keymap("n", "<C-N>", "<C-e>", opts)
+-- keymap("n", "<C-E>", "<C-y>", opts)
+-- keymap("n", "<C-N>", "<C-e>", opts)
 
 -- Normal --
 -- Better window navigation
