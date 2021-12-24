@@ -80,10 +80,6 @@ local opts = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
@@ -94,8 +90,18 @@ local mappings = {
     "Find files",
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["r"] = { "<Plug>(Scalpel)", "Replace Text"},
-  -- ["/"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" },
+
+  b = {
+    name = "Buffers",
+    b = {
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Buffers",
+    },
+    c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+    v = { "<cmd>vsplit<CR>", "Split Vertically" },
+    x = { "<cmd>split<CR>", "Split Horizontally" },
+    t = { "<cmd>tabnew<CR>", "Close Buffer" },
+  },
 
   p = {
     name = "Packer",
@@ -179,17 +185,26 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
-  t = {
-    name = "Terminal",
-    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  r = {
+    name = "Replace",
+    r = { "<Plug>(Scalpel)", "Replace Word Current File (Scalpel)"},
+    R = { "<CMD>lua require('spectre').open_file_search()<CR>", "Replace Current File"},
+    s = { "<CMD>lua require('spectre').open()<CR>", "Replace Workspace"},
+    S = { "<CMD>lua require('spectre').open_visual()<CR>", "Replace Workspace (Visual)"},
+    w = { "<CMD>lua require('spectre').open_visual({select_word=true})<CR>", "Replace Workspace (Word)"},
   },
+
+  -- t = {
+  --   name = "Terminal",
+  --   g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+  --   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+  --   d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<cr>", "NCDU" },
+  --   t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+  --   p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+  --   f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+  --   h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+  --   v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  -- },
 }
 
 which_key.setup(setup)

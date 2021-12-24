@@ -51,7 +51,7 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
+  -- use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -60,15 +60,16 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use {
     "phaazon/hop.nvim",
-    branch = 'v1', -- optional but strongly recommended
+    branch = "v1", -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
-      require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+      require("hop").setup { keys = "etovxqpdygfblzhckisuran" }
     end
   }
   use "norcalli/nvim-colorizer.lua"
   use "rcarriga/nvim-notify"
   use "wincent/scalpel"
+  use "windwp/nvim-spectre"
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -87,17 +88,17 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-nvim-lsp"
   use {
-    'saecki/crates.nvim',
+    "saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
-    requires = { { 'nvim-lua/plenary.nvim' } },
+    requires = { { "nvim-lua/plenary.nvim" } },
     config = function()
-        require('crates').setup()
+        require("crates").setup()
     end,
   }
   use {
-    'David-Kunz/cmp-npm',
+    "David-Kunz/cmp-npm",
     requires = {
-      'nvim-lua/plenary.nvim'
+      "nvim-lua/plenary.nvim"
     }
   }
 
@@ -108,6 +109,7 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  -- use "mfussenegger/nvim-dap"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -119,7 +121,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "p00f/nvim-ts-rainbow"
+  -- use "p00f/nvim-ts-rainbow"
 
   -- Git
   use "lewis6991/gitsigns.nvim"

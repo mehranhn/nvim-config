@@ -3,6 +3,15 @@ local opts = { noremap = true, silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
+local function nxomap(lhs, rhs, o)
+  vim.api.nvim_set_keymap("n", lhs, rhs, o)
+  vim.api.nvim_set_keymap("x", lhs, rhs, o)
+  vim.api.nvim_set_keymap("o", lhs, rhs, o)
+end
+local function nxmap(lhs, rhs, o)
+  vim.api.nvim_set_keymap("n", lhs, rhs, o)
+  vim.api.nvim_set_keymap("x", lhs, rhs, o)
+end
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -18,42 +27,35 @@ vim.g.maplocalleader = " "
 
 -- Colemak
 -- general
-keymap("n", "k", "<INSERT>", opts)
-keymap("n", "K", "0<INSERT>", opts)
--- keymap("n", "i", "", opts)
--- keymap("n", "I", "", opts)
+nxomap("k", "i", {noremap = true})
+nxomap("K", "I", {noremap = true})
 keymap("n", "U", "<CMD>redo<CR>", opts)
--- keymap("n", "<C-r>", "", opts)
+-- keymap("n", "<C-r>", "<Nop>", opts)
 keymap("n", ",", "n", opts)
 keymap("n", ".", "N", opts)
-keymap("x", "K", "I", opts)
 
 -- navigation
--- keymap("", "h", "<LEFT>", opts)
-keymap("", "n", "<DOWN>", opts)
-keymap("", "e", "<UP>", opts)
-keymap("", "i", "<Right>", opts)
--- keymap("", "h", "", opts)
--- keymap("", "j", "", opts)
--- keymap("", "k", "", opts)
--- keymap("", "l", "", opts)
+-- nxomap("h", "h", opts)
+nxomap("n", "j", opts)
+nxomap("e", "k", opts)
+nxomap("i", "l", opts)
 
-keymap("", "H", "<HOME>", opts)
-keymap("", "N", "5<DOWN>", opts)
-keymap("", "E", "5<UP>", opts)
-keymap("", "I", "<END>", opts)
+nxomap("H", "<HOME>", opts)
+nxomap("N", "5<DOWN>", opts)
+nxomap("E", "5<UP>", opts)
+nxomap("I", "<END>", opts)
 
--- keymap("n", "<C-E>", "<C-y>", opts)
--- keymap("n", "<C-U>", "<C-e>", opts)
+keymap("n", "<C-E>", "<C-y>", opts)
+keymap("n", "<C-N>", "<C-e>", opts)
 
 -- Normal --
- -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-n>", "<C-w>j", opts)
-keymap("n", "<C-e>", "<C-w>k", opts)
-keymap("n", "<C-i>", "<C-w>l", opts)
+-- Better window navigation
+keymap("n", "<A-h>", "<C-w>h", opts)
+keymap("n", "<A-n>", "<C-w>j", opts)
+keymap("n", "<A-e>", "<C-w>k", opts)
+keymap("n", "<A-i>", "<C-w>l", opts)
 
--- -- Resize with arrows
+-- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
@@ -62,59 +64,42 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 -- keymap("n", "<S-i>", ":bnext<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- -- Move text up and down
-keymap("n", "<A-n>", ":m .+1<CR>", opts)
-keymap("n", "<A-e>", ":m .-2<CR>", opts)
-
--- Insert --
--- Press ne fast to enter
--- keymap("i", "ne", "<ESC>", opts)
-keymap("i", "<C-h>", "<left>", opts)
-keymap("i", "<C-n>", "<down>", opts)
-keymap("i", "<C-e>", "<up>", opts)
-keymap("i", "<C-i>", "<right>", opts)
-
--- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+keymap("n", "<Tab>", "<CMD>bnext<CR>", opts)
+keymap("n", "<S-Tab>", "<CMD>bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("v", "<A-n>", ":move '>+1<CR>gv-gv", opts)
-keymap("v", "<A-e>", ":move '<-2<CR>gv-gv", opts)
-keymap("v", "p", '"_dP', opts)
+keymap("n", "<C-n>", ":m .+1<CR>", opts)
+keymap("n", "<C-e>", ":m .-2<CR>", opts)
+
+-- Press ne fast to enter
+-- Insert --
+-- keymap("i", "ne", "<ESC>", opts)
+-- keymap("l", "<C-h>", "<left>", opts)
+-- keymap("l", "<C-n>", "<down>", opts)
+-- keymap("l", "<C-e>", "<up>", opts)
+-- keymap("l", "<C-i>", "<right>", opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "N", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "E", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-n>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-e>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<C-n>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<C-e>", ":move '<-2<CR>gv-gv", opts)
+-- keymap("x", "<", "<gv", opts)
+-- keymap("x", ">", ">gv", opts)
+keymap("x", "<Tab>", ">gv", opts)
+keymap("x", "<S-Tab>", "<gv", opts)
 
 -- clipboard
-keymap("n", "<C-p>", "\"\"p", opts)
-keymap("v", "<C-p>", "\"\"p", opts)
-keymap("x", "<C-p>", "\"\"p", opts)
-
-keymap("n", "y", "\"+y", opts)
-keymap("n", "Y", "\"+Y$", opts)
-keymap("n", "p", "\"+p", opts)
-keymap("n", "P", "\"+P", opts)
-keymap("v", "y", "\"+y", opts)
-keymap("v", "Y", "\"+Y$", opts)
-keymap("v", "p", "\"+p", opts)
-keymap("v", "P", "\"+P", opts)
-keymap("x", "y", "\"+y", opts)
-keymap("x", "Y", "\"+Y$", opts)
-keymap("x", "p", "\"+p", opts)
-keymap("x", "P", "\"+P", opts)
+nxmap("<C-p>", "\"ap", opts)
+nxmap("<C-P>", "\"aP", opts)
+nxmap("d", "\"ad", opts)
+nxmap("D", "\"aD", opts)
+nxmap("c", "\"ac", opts)
+nxmap("C", "\"aC", opts)
+nxmap("x", "\"ax", opts)
+nxmap("X", "\"aX", opts)
 
 -- macro
 keymap("", "Q", "@q", opts)
 
-keymap("n", "l", "<CMD>bnext<CR>", opts)
-keymap("n", "<S-l>", "<CMD>bprevious<CR>", opts)
-keymap("i", "<S-Tab>", "<Tab>", opts)
-keymap("v", "<Tab>", ">gv", opts)
-keymap("v", "<S-Tab>", "<gv", opts)
+-- spectre
+keymap("v", "<leader>r", "<ESC><CMD>lua require('spectre').open_visual()<CR>", opts)
