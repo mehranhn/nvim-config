@@ -28,11 +28,12 @@ toggleterm.setup({
 
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-q>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-n>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-e>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-i>', [[<C-\><C-n><C-W>l]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<A-w>', [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<A-h>', [[<C-\><C-n><C-W>h]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<A-n>', [[<C-\><C-n><C-W>j]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<A-e>', [[<C-\><C-n><C-W>k]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<A-i>', [[<C-\><C-n><C-W>l]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<A-q>', [[<C-\><C-n><C-W>q]], opts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
