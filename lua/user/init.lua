@@ -23,6 +23,7 @@ require("user.colorizer")
 require("user.nvim-notify")
 require("user.scaple-cfg")
 require("user.nvim-spectre")
+require("user.neovide")
 -- require("user.dap")
 
 require("user.keymaps")
