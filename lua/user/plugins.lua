@@ -52,7 +52,21 @@ return packer.startup(function(use)
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
-  use "ahmedkhalf/project.nvim"
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {
+        on_config_done = nil,
+        manual_mode = false,
+        detection_methods = { "pattern" },
+        patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+        show_hidden = false,
+        silent_chdir = true,
+        ignore_lsp = {},
+        datapath = vim.fn.stdpath("data"),
+      }
+    end
+  }
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "goolord/alpha-nvim"
@@ -70,6 +84,7 @@ return packer.startup(function(use)
   use "rcarriga/nvim-notify"
   use "wincent/scalpel"
   use "windwp/nvim-spectre"
+  use "ThePrimeagen/harpoon"
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -89,6 +104,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use {
     "saecki/crates.nvim",
+    tag = 'v0.1.0',
     event = { "BufRead Cargo.toml" },
     requires = { { "nvim-lua/plenary.nvim" } },
     config = function()
@@ -109,11 +125,21 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  -- use "mfussenegger/nvim-dap"
+
+  -- DAP
+  use "mfussenegger/nvim-dap"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+  use "nvim-telescope/telescope-dap.nvim"
+  use "nvim-telescope/telescope-project.nvim"
+  use "nvim-telescope/telescope-media-files.nvim"
 
   -- Treesitter
   use {
@@ -125,7 +151,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
-  
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

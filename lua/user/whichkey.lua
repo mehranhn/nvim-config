@@ -64,8 +64,8 @@ local setup = {
     -- list of mode / prefixes that should never be hooked by WhichKey
     -- this is mostly relevant for key maps that start with a native binding
     -- most people should not need to change this
-    i = { "j", "k" },
-    v = { "j", "k" },
+    i = { "n", "e" },
+    v = { "n", "e" },
   },
 }
 
@@ -101,6 +101,31 @@ local mappings = {
     v = { "<cmd>vsplit<CR>", "Split Vertically" },
     x = { "<cmd>split<CR>", "Split Horizontally" },
     t = { "<cmd>tabnew<CR>", "Close Buffer" },
+  },
+
+  d = {
+    name = "Debug",
+    h = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+    n = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+    e = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+    o = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    O = { "<cmd>lua require'dap'.reverse_continue()<cr>", "Reverse Continue" },
+    u = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+    d = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
+    R = { "<cmd>lua require'dap'.run_last()<cr>", "Run Last" },
+    r = { "<cmd>lua require'dap'.repl.open()<cr>", "Open Repel" },
+    q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+    l = { "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input(\"Log point message: \"))<cr>", "Set Log Point" },
+  },
+  i = {
+    name = "Harpoon",
+    i = { "<cmd>lua require('harpoon.mark').toggle_file()<cr>", "Toggle File" },
+    n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Next" },
+    e = { "<cmd>lua require('harpoon.ui').nav_prev()  <cr>", "Previous" },
+    M = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Menu" },
+    m = { "<cmd>Telescope harpoon marks<cr>", "Menu (Telescope)" },
   },
 
   p = {
@@ -177,12 +202,16 @@ local mappings = {
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    m = { "<cmd>lua require('telescope').extensions.media_files.media_files()<CR>", "Media Files" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    p = { "<cmd>Telescope projects<cr>", "Projects" },
+    e = { "<cmd>Telescope emoji<cr>", "Emoji" },
+    -- p = { "<cmd>Telescope projects<cr>", "Projects" },
+    p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", "Projects" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
+    i = { "<cmd>Telescope harpoon marks<cr>", "Harpoon Marks" },
   },
 
   r = {

@@ -46,7 +46,7 @@ nxomap("n", "j", opts)
 nxomap("e", "k", opts)
 nxomap("i", "l", opts)
 
-nxomap("H", "<HOME>", opts)
+nxomap("H", "^", opts)
 nxomap("N", "5<DOWN>", opts)
 nxomap("E", "5<UP>", opts)
 nxomap("I", "<END>", opts)

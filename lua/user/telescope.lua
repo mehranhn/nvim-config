@@ -97,9 +97,25 @@ telescope.setup {
       override_generic_sorter = true,  -- override the generic sorter
       override_file_sorter = true,     -- override the file sorter
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case" the default case_mode is "smart_case"
-    }
+    },
+    project = {
+      base_dirs = {
+        {'~/.src/', max_depth = 2},
+        {'~/Projects', max_depth = 3},
+      },
+    },
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = {"png", "webp", "jpg", "jpeg"},
+      find_cmd = "rg" -- find command (defaults to `fd`)
+    },
   },
 }
 
 telescope.load_extension('fzf')
 telescope.load_extension('projects')
+telescope.load_extension('project')
+telescope.load_extension('media_files')
+telescope.load_extension('harpoon')
+telescope.load_extension('dap')
