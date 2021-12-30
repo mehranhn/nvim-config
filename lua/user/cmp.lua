@@ -9,11 +9,9 @@ if not snip_status_ok then
 end
 
 local npm_status_ok, npm = pcall(require, "cmp-npm")
-if not npm_status_ok then
-  return
+if npm_status_ok then
+  npm.setup()
 end
-
-npm.setup()
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -113,6 +111,7 @@ cmp.setup {
         crates = "[Crates]",
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
+        npm = "[NPM]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -124,7 +123,7 @@ cmp.setup {
     -- { name = "crates" }, -- lazy loaded
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = 'npm', keyword_length = 4 },
+    -- { name = 'npm', keyword_length = 4 },
     { name = "buffer", Keyword_length = 5 },
     { name = "path" },
   },

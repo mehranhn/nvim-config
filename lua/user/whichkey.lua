@@ -79,17 +79,16 @@ local opts = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
-  -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
+  a = { "<cmd>Alpha<cr>", "Alpha" },
+  e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  w = { "<cmd>w!<CR>", "Save" },
+  q = { "<cmd>q!<CR>", "Quit" },
+  h = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  f = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 
   c = {
     name = "Buffers",
@@ -118,6 +117,7 @@ local mappings = {
     r = { "<cmd>lua require'dap'.repl.open()<cr>", "Open Repel" },
     q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     l = { "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input(\"Log point message: \"))<cr>", "Set Log Point" },
+    t = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle Dap UI" },
   },
   i = {
     name = "Harpoon",
@@ -154,40 +154,37 @@ local mappings = {
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-    d = {
+    D = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
   },
 
+  l = {
+    name = "Trouble",
+    w = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics", },
+    W = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics", },
+    A = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+    r = { "<cmd>TroubleToggle lsp_references<CR>", "References"},
+    i = { "<cmd>TroubleToggle lsp_implementations<CR>", "Implementations"},
+    a = { "<cmd>TroubleToggle loclist<cr>", "Code Action" },
+    d = { "<cmd>TroubleToggle lsp_definitions<CR>", "Definition"},
+    D = { "<cmd>TroubleToggle lsp_type_definitions<CR>", "Type Definition"},
+  },
+
   n = {
     name = "LSP",
-    w = {
-      "<cmd>Telescope lsp_document_diagnostics<cr>",
-      "Document Diagnostics",
-    },
-    W = {
-      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
+    w = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics", },
+    W = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics", },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     I = { "<cmd>LspInfo<cr>", "Info" },
-    n = {
-      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-      "Next Diagnostic",
-    },
-    e = {
-      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-      "Prev Diagnostic",
-    },
-    o = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+    n = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic", },
+    e = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic", },
+    o = { "<cmd>SymbolsOutline<cr>", "Outline" },
+    A = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
-    },
+    S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
     h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
     H = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
     D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration"},
@@ -221,6 +218,7 @@ local mappings = {
     s = { "<CMD>lua require('spectre').open()<CR>", "Replace Workspace"},
     S = { "<CMD>lua require('spectre').open_visual()<CR>", "Replace Workspace (Visual)"},
     w = { "<CMD>lua require('spectre').open_visual({select_word=true})<CR>", "Replace Workspace (Word)"},
+    t = { "<CMD>ISwap<CR>", "ISwap"},
   },
 
   t = {

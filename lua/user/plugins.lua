@@ -85,6 +85,8 @@ return packer.startup(function(use)
   use "wincent/scalpel"
   use "windwp/nvim-spectre"
   use "ThePrimeagen/harpoon"
+  use "tversteeg/registers.nvim"
+  use {"hood/popui.nvim", requires = "RishabhRD/popfix"}
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -93,6 +95,8 @@ return packer.startup(function(use)
   use "EdenEast/nightfox.nvim"
   use "sainnhe/sonokai"
   use "folke/tokyonight.nvim"
+  use "rose-pine/neovim"
+  use "rebelot/kanagawa.nvim"
 
   -- completions
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -111,25 +115,34 @@ return packer.startup(function(use)
         require("crates").setup()
     end,
   }
-  use {
-    "David-Kunz/cmp-npm",
-    requires = {
-      "nvim-lua/plenary.nvim"
-    }
-  }
+  -- use {
+  --   "David-Kunz/cmp-npm",
+  --   requires = {
+  --     "nvim-lua/plenary.nvim"
+  --   }
+  -- }
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "b0o/schemastore.nvim"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "ray-x/lsp_signature.nvim"
+  use "simrat39/symbols-outline.nvim"
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
+  use "simrat39/rust-tools.nvim"
+  use "David-Kunz/jester"
 
   -- DAP
   use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
-  use "rcarriga/nvim-dap-ui"
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
   -- Telescope
   use {
@@ -147,7 +160,9 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  -- use "p00f/nvim-ts-rainbow"
+  use "windwp/nvim-ts-autotag"
+  use "p00f/nvim-ts-rainbow"
+  use "mizlan/iswap.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
