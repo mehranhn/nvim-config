@@ -138,6 +138,7 @@ return packer.startup(function(use)
   }
   use "simrat39/rust-tools.nvim"
   use "David-Kunz/jester"
+  use "leoluz/nvim-dap-go"
 
   -- DAP
   use "mfussenegger/nvim-dap"

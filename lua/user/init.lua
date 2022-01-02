@@ -29,6 +29,7 @@ require("user.iswap")
 require("user.trouble")
 require("user.popui")
 require("user.rust-tools")
+require("user.dap-go-cfg")
 
 require("user.keymaps")
 require("user.whichkey")
