@@ -40,4 +40,19 @@ require('lspconfig').rust_analyzer.setup{
     end
   end,
   capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      experimental = {
+        procAttrMacros = false,
+      },
+      -- procMacro = {
+      --   enable = true,
+      --   ignored = {
+      --     async_trait = {
+      --       "async_trait",
+      --     },
+      --   },
+      -- },
+    },
+  },
 }

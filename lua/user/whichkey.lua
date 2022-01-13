@@ -79,27 +79,26 @@ local opts = {
 }
 
 local mappings = {
-  a = { "<cmd>Alpha<cr>", "Alpha" },
+  A = { "<cmd>Alpha<cr>", "Alpha" },
   e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   w = { "<cmd>w!<CR>", "Save" },
   q = { "<cmd>q!<CR>", "Quit" },
   h = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  f = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 
   c = {
-    name = "Buffers",
+    name = "Buffers/Tabs",
     b = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Buffers",
     },
     c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+    a = { "<cmd>bufdo Bdelete<CR>", "Close All Buffers" },
     v = { "<cmd>vsplit<CR>", "Split Vertically" },
     x = { "<cmd>split<CR>", "Split Horizontally" },
-    t = { "<cmd>tabnew<CR>", "Close Buffer" },
+    t = { "<cmd>tabnew<CR>", "New Tab" },
+    n = { "<cmd>tabnext<CR>", "Next Tab" },
+    e = { "<cmd>tabprevious<CR>", "Previous Tab" },
+    d = { "<cmd>tabclose<CR>", "Close Tab" },
   },
 
   d = {
@@ -192,6 +191,9 @@ local mappings = {
     i = { "<cmd>Telescope lsp_implementations<CR>", "Implementations"},
     r = { "<cmd>Telescope lsp_references<CR>", "References"},
     a = { "<cmd>Telescope lsp_code_actions<cr>", "Code Action" },
+    Q = { "<cmd>LspRestart<cr>", "Restart" },
+    j = { "<cmd>LspStart<cr>", "Start" },
+    J = { "<cmd>LspStop<cr>", "Stop" },
     l = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = \"rounded\" })<cr>", "Line Diagnostics" },
   },
   s = {
@@ -209,6 +211,11 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     i = { "<cmd>Telescope harpoon marks<cr>", "Harpoon Marks" },
+    s = {
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Find files",
+    },
+    S = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   },
 
   r = {

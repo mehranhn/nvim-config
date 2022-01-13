@@ -34,6 +34,7 @@ notify.setup({
     DEBUG = "",
     TRACE = "✎",
   },
+
 })
 
 vim.notify = notify
