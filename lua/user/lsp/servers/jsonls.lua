@@ -177,21 +177,21 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require('lspconfig').jsonls.setup {
-  on_attach = require("user.lsp.handlers").on_attach,
-  capabilities = capabilities,
-  settings = {
-    json = {
-      -- schemas = extended_schemas,
-      schemas = require('schemastore').json.schemas(),
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = capabilities,
+    settings = {
+        json = {
+            -- schemas = extended_schemas,
+            schemas = require('schemastore').json.schemas(),
+        },
     },
-  },
-  setup = {
-    commands = {
-      Format = {
-        function()
-          vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line "$", 0 })
-        end,
-      },
+    setup = {
+        commands = {
+            Format = {
+                function()
+                    vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line "$", 0 })
+                end,
+            },
+        },
     },
-  },
 }

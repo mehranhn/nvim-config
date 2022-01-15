@@ -4,13 +4,13 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 local function nxomap(lhs, rhs, o)
-  vim.api.nvim_set_keymap("n", lhs, rhs, o)
-  vim.api.nvim_set_keymap("x", lhs, rhs, o)
-  vim.api.nvim_set_keymap("o", lhs, rhs, o)
+    vim.api.nvim_set_keymap("n", lhs, rhs, o)
+    vim.api.nvim_set_keymap("x", lhs, rhs, o)
+    vim.api.nvim_set_keymap("o", lhs, rhs, o)
 end
 local function nxmap(lhs, rhs, o)
-  vim.api.nvim_set_keymap("n", lhs, rhs, o)
-  vim.api.nvim_set_keymap("x", lhs, rhs, o)
+    vim.api.nvim_set_keymap("n", lhs, rhs, o)
+    vim.api.nvim_set_keymap("x", lhs, rhs, o)
 end
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)

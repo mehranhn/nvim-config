@@ -18,6 +18,11 @@ null_ls.setup({
         diagnostics.cppcheck,
         diagnostics.eslint_d,
         diagnostics.tsc,
-    -- diagnostics.flake8
+        -- diagnostics.flake8
 	},
+    log = {
+        enable = true,
+        level = "error",
+        use_console = "async",
+    },
 })

@@ -1,6 +1,6 @@
 local status_ok, popui = pcall(require, "popui")
 if not status_ok then
-  return
+    return
 end
 
 vim.ui.select = require"popui.ui-overrider"
