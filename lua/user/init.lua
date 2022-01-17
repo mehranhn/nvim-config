@@ -1,3 +1,6 @@
+require("user.keymaps")
+require("user.whichkey")
+
 require("user.options")
 require("user.plugins")
 require("user.colorscheme")
@@ -30,6 +33,3 @@ require("user.trouble")
 require("user.popui")
 require("user.rust-tools")
 require("user.dap-go-cfg")
-
-require("user.keymaps")
-require("user.whichkey")
