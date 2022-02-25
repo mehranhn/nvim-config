@@ -59,7 +59,7 @@ return packer.startup(function(use)
                 on_config_done = nil,
                 manual_mode = false,
                 detection_methods = { "pattern" },
-                patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+                patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" },
                 show_hidden = false,
                 silent_chdir = true,
                 ignore_lsp = {},
@@ -141,7 +141,7 @@ return packer.startup(function(use)
     use "leoluz/nvim-dap-go"
 
     -- DAP
-    use "mfussenegger/nvim-dap"
+    use 'mfussenegger/nvim-dap'
     use "theHamsta/nvim-dap-virtual-text"
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
