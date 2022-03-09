@@ -194,7 +194,7 @@ local mappings = {
         Q = { "<cmd>LspRestart<cr>", "Restart" },
         j = { "<cmd>LspStart<cr>", "Start" },
         J = { "<cmd>LspStop<cr>", "Stop" },
-        l = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = \"rounded\" })<cr>", "Line Diagnostics" },
+        l = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Line Diagnostics" },
     },
     s = {
         name = "Search",

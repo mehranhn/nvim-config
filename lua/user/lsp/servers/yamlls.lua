@@ -4,6 +4,7 @@ require('lspconfig').yamlls.setup {
     capabilities = capabilities,
     settings = {
         yaml = {
+            schemas = require('schemastore').json.schemas(),
         },
     }
 }

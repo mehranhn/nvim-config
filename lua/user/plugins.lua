@@ -87,6 +87,7 @@ return packer.startup(function(use)
     use "ThePrimeagen/harpoon"
     use "tversteeg/registers.nvim"
     use {"hood/popui.nvim", requires = "RishabhRD/popfix"}
+    use "cryptomilk/git-modeline.vim"
 
     -- Colorschemes
     use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
