@@ -80,6 +80,7 @@ local opts = {
 
 local mappings = {
     A = { "<cmd>Alpha<cr>", "Alpha" },
+    a = { "<cmd>set invlist<cr>", "Toggle List Mode" },
     e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     w = { "<cmd>w!<CR>", "Save" },
     q = { "<cmd>q!<CR>", "Quit" },

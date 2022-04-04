@@ -81,7 +81,7 @@ return packer.startup(function(use)
         end
     }
     use "norcalli/nvim-colorizer.lua"
-    use "rcarriga/nvim-notify"
+    -- use "rcarriga/nvim-notify"
     use "wincent/scalpel"
     use "windwp/nvim-spectre"
     use "ThePrimeagen/harpoon"
