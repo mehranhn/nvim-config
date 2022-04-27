@@ -109,5 +109,3 @@ keymap("", "Q", "@q", opts)
 
 -- spectre
 keymap("v", "<leader>r", "<ESC><CMD>lua require('spectre').open_visual()<CR>", opts)
-
-keymap("v", "<C-i>", "<nop>", opts)
