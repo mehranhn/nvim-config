@@ -80,11 +80,15 @@ local opts = {
 
 local mappings = {
     A = { "<cmd>Alpha<cr>", "Alpha" },
-    a = { "<cmd>set invlist<cr>", "Toggle List Mode" },
     e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     w = { "<cmd>w!<CR>", "Save" },
     q = { "<cmd>q!<CR>", "Quit" },
     h = { "<cmd>nohlsearch<CR>", "No Highlight" },
+
+    a = {
+        a = { "<cmd>set invlist<cr>", "Toggle List Mode" },
+        s = { "<cmd>set spell!<cr>", "Toggle Spell Mode"},
+    },
 
     c = {
         name = "Buffers/Tabs",
@@ -178,10 +182,10 @@ local mappings = {
         W = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics", },
         f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
         I = { "<cmd>LspInfo<cr>", "Info" },
-        n = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic", },
-        e = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic", },
+        n = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic", },
+        e = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic", },
         o = { "<cmd>SymbolsOutline<cr>", "Outline" },
-        A = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+        A = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
         R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
         S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },

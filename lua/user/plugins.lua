@@ -166,6 +166,12 @@ return packer.startup(function(use)
     use "windwp/nvim-ts-autotag"
     use "p00f/nvim-ts-rainbow"
     use "mizlan/iswap.nvim"
+    use {
+        "lewis6991/spellsitter.nvim",
+        config = function()
+            require('spellsitter').setup()
+        end
+    }
 
     -- Git
     use "lewis6991/gitsigns.nvim"
