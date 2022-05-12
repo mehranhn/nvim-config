@@ -1,9 +1,9 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 vim.g.nvim_tree_icons = {
-        default = "",
-        symlink = "",
-        git = {
+    default = "",
+    symlink = "",
+    git = {
         unstaged = "",
         staged = "S",
         unmerged = "",
@@ -56,7 +56,7 @@ nvim_tree.setup {
                 { key = {"<2-RightMouse>", "<C-]>"},    action = "cd" },
                 { key = "<C-v>",                        action = "vsplit" },
                 { key = "<C-x>",                        action = "split" },
-                { key = "<C-t>",                        action = "tabnew" },
+                { key = "<C-S-t>",                      action = "tabnew" },
                 { key = "<",                            action = "prev_sibling" },
                 { key = ">",                            action = "next_sibling" },
                 { key = "P",                            action = "parent_node" },
@@ -69,7 +69,7 @@ nvim_tree.setup {
                 { key = "R",                            action = "refresh" },
                 { key = "a",                            action = "create" },
                 { key = "d",                            action = "remove" },
-                { key = "D",                            action = "trash" },
+                -- { key = "D",                            action = "trash" },
                 { key = "r",                            action = "rename" },
                 { key = "<C-r>",                        action = "full_rename" },
                 { key = "x",                            action = "cut" },

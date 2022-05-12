@@ -90,14 +90,15 @@ return packer.startup(function(use)
     use "cryptomilk/git-modeline.vim"
 
     -- Colorschemes
-    use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-    use "lunarvim/darkplus.nvim"
+    use "Mofiqul/vscode.nvim"
     use "haishanh/night-owl.vim"
     use "EdenEast/nightfox.nvim"
     use "sainnhe/sonokai"
     use "folke/tokyonight.nvim"
     use "rose-pine/neovim"
     use "rebelot/kanagawa.nvim"
+    use "rafamadriz/neon"
+    use "marko-cerovac/material.nvim"
 
     -- completions
     use "hrsh7th/nvim-cmp" -- The completion plugin

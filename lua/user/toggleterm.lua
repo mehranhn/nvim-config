@@ -16,6 +16,7 @@ toggleterm.setup({
     direction = "float",
     close_on_exit = true,
     shell = vim.o.shell,
+    -- shell = "tmux",
     float_opts = {
         border = "curved",
         winblend = 0,
@@ -63,6 +64,12 @@ end
 -- function _NCDU_TOGGLE()
 --     ncdu:toggle()
 -- end
+
+local tmux = Terminal:new({ cmd = "tmux", hidden = true })
+
+function _TMUX_TOGGLE()
+    tmux:toggle()
+end
 
 local htop = Terminal:new({ cmd = "htop", hidden = true })
 
