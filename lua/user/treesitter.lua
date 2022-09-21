@@ -42,7 +42,7 @@ configs.setup {
             -- "Salmon",
             -- "LawnGreen",
         },
-        disable = { "html" },
+        disable = { "html", "jsx" },
     },
 }
 

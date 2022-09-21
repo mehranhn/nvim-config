@@ -49,6 +49,7 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
     use "akinsho/bufferline.nvim"
+    use "tiagovla/scope.nvim"
     use "moll/vim-bbye"
     use "nvim-lualine/lualine.nvim"
     use "akinsho/toggleterm.nvim"
@@ -88,6 +89,7 @@ return packer.startup(function(use)
     use "tversteeg/registers.nvim"
     use {"hood/popui.nvim", requires = "RishabhRD/popfix"}
     use "cryptomilk/git-modeline.vim"
+    use "monaqa/dial.nvim"
 
     -- Colorschemes
     use "Mofiqul/vscode.nvim"
@@ -164,6 +166,7 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
     use "JoosepAlviste/nvim-ts-context-commentstring"
+    use 'nvim-treesitter/nvim-treesitter-context'
     use "windwp/nvim-ts-autotag"
     use "p00f/nvim-ts-rainbow"
     use "mizlan/iswap.nvim"

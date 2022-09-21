@@ -51,6 +51,9 @@ nxomap("N", "5<DOWN>", opts)
 nxomap("E", "5<UP>", opts)
 nxomap("I", "<END>", opts)
 
+--[[ nxmap("<C-L>", "<C-d>", opts) ]]
+--[[ nxmap("<C-U>", "<C-u>", opts) ]]
+
 -- keymap("n", "<C-E>", "<C-y>", opts)
 -- keymap("n", "<C-N>", "<C-e>", opts)
 
