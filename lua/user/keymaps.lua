@@ -107,6 +107,9 @@ nxmap("C", "\"aC", opts)
 nxmap("x", "\"ax", opts)
 nxmap("X", "\"aX", opts)
 
+keymap("c", "<C-p>", "<C-r>\"", opts)
+--[[ keymap("c", "<C-P>", "\"+P", opts) ]]
+
 -- macro
 keymap("", "Q", "@q", opts)
 
