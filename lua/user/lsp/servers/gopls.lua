@@ -1,4 +1,4 @@
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local status_ok = pcall(require, "dap-go")
 local wstatus_ok, which_key = pcall(require, "which-key")
 require('lspconfig').gopls.setup {
