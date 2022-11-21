@@ -92,7 +92,6 @@ return packer.startup(function(use)
     use "monaqa/dial.nvim"
     use "rmagatti/goto-preview"
     use "j-hui/fidget.nvim"
-    use "junegunn/goyo.vim"
 
     -- Colorschemes
     use "Mofiqul/vscode.nvim"
