@@ -172,7 +172,9 @@ local mappings = {
         r = { "<cmd>TroubleToggle lsp_references<CR>", "References"},
         i = { "<cmd>TroubleToggle lsp_implementations<CR>", "Implementations"},
         a = { "<cmd>TroubleToggle loclist<cr>", "Code Action" },
-        d = { "<cmd>TroubleToggle lsp_definitions<CR>", "Definition"},
+        q = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all goto_preview windows" },
+        --[[ d = { "<cmd>TroubleToggle lsp_definitions<CR>", "Definition"}, ]]
+        d = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "Definition"},
         D = { "<cmd>TroubleToggle lsp_type_definitions<CR>", "Type Definition"},
     },
 

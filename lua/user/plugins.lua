@@ -90,6 +90,9 @@ return packer.startup(function(use)
     use {"hood/popui.nvim", requires = "RishabhRD/popfix"}
     use "cryptomilk/git-modeline.vim"
     use "monaqa/dial.nvim"
+    use "rmagatti/goto-preview"
+    use "j-hui/fidget.nvim"
+    use "junegunn/goyo.vim"
 
     -- Colorschemes
     use "Mofiqul/vscode.nvim"

@@ -3,25 +3,26 @@ if not status_ok then
   return
 end
 
+local r = require("user.lsp.servers.rust_analyzer")
+
 rust.setup({
+    tools = {
+        runnables = {
+            use_telescope = true,
+        },
+        inlay_hints = {
+            --[[ auto = true, ]]
+            --[[ show_parameter_hints = true, ]]
+            --[[ parameter_hints_prefix = "", ]]
+            --[[ other_hints_prefix = "", ]]
+            --[[ highlight = "Comment", ]]
+        },
+    },
     server = {
         -- standalone file support
         -- setting it to false may improve startup time
         standalone = false,
-        settings = {
-            ["rust-analyzer"] = {
-                experimental = {
-                    procAttrMacros = false,
-                },
-                -- procMacro = {
-                --     enable = true,
-                --     ignored = {
-                --         async_trait = {
-                --             "async_trait",
-                --         },
-                --     },
-                -- },
-            },
-        },
+        on_attach = r.on_attach,
+        settings = r.settings,
     },
 })
