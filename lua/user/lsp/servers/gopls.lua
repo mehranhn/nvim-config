@@ -2,6 +2,17 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 local status_ok = pcall(require, "dap-go")
 local wstatus_ok, which_key = pcall(require, "which-key")
 require('lspconfig').gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
     on_attach = function(client, bufnr)
         require("user.lsp.handlers").on_attach(client, bufnr)
         if status_ok then
@@ -19,7 +30,7 @@ require('lspconfig').gopls.setup {
                 }
                 local map = {
                     o = {
-                        name = "Rust Tools",
+                        name = "Go Tools",
                         d = {"<CMD>lua require('dap-go').debug_test()<CR>", "Debug Test"},
                     },
                 }
