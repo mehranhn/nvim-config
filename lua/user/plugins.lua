@@ -91,7 +91,7 @@ return packer.startup(function(use)
     use "cryptomilk/git-modeline.vim"
     use "monaqa/dial.nvim"
     use "rmagatti/goto-preview"
-    use "j-hui/fidget.nvim"
+    use { "j-hui/fidget.nvim", tag = "legacy" }
 
     -- Colorschemes
     use "Mofiqul/vscode.nvim"
