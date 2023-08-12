@@ -54,11 +54,9 @@ M.settings = {
         procMacro = {
             enable = true,
             attributes = {
-                -- because procMacro.ignored does not work
-                enable = false
+                enable = true
             },
             ignored = {
-                -- it's not working and i dont know why
                 ["async_trait"] = {"async_trait"},
             },
         },
