@@ -58,9 +58,9 @@ M.settings = {
             attributes = {
                 enable = true
             },
-            ignored = {
-                ["async_trait"] = {"async_trait"},
-            },
+            --[[ ignored = { ]]
+            --[[     ["async_trait"] = {"async_trait"}, ]]
+            --[[ }, ]]
         },
     }
 }
