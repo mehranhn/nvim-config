@@ -31,10 +31,6 @@ vim.opt.signcolumn = "yes"                      -- always show the sign column o
 vim.opt.wrap = false                            -- display lines as one long line
 vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
-vim.opt.guifont = "monospace:h10.5"                -- the font used in graphical neovim applications
--- vim.opt.guifont = "Hack Nerd Font:h8"           -- the font used in graphical neovim applications
--- vim.opt.guifont = "Iosevka:h8"                  -- the font used in graphical neovim applications
--- vim.opt.guifont = "Fira Code:h7"                -- the font used in graphical neovim applications
 vim.opt.listchars = "tab:▷▷⋮"
 vim.opt.mousemodel = "extend"
 

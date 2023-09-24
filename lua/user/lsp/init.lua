@@ -5,5 +5,3 @@ end
 
 require("user.lsp.handlers").setup()
 require("user.lsp.servers")
-require("user.lsp.null-ls")
-require("user.lsp.lsp-signature")
