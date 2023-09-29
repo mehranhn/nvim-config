@@ -9,4 +9,14 @@ if vim.g.neovide then
 
     -- vim.g.neovide_transparency = 0.8
     vim.g.neovide_hide_mouse_when_typing = true
+    vim.g.neovide_cursor_vfx_mode = "torpedo"
+
+    -- keymaps
+    local opts = { noremap = true, silent = true }
+    vim.api.nvim_set_keymap("n", "<c-c>", "\"+y", opts)
+    vim.api.nvim_set_keymap("v", "<c-c>", "\"+y", opts)
+    vim.api.nvim_set_keymap("n", "<c-v>", "\"+p", opts)
+    vim.api.nvim_set_keymap("i", "<c-v>", "<c-r>+", opts)
+    vim.api.nvim_set_keymap("c", "<c-v>", "<c-r>+", opts)
+    --[[ vim.api.nvim_set_keymap("i", "<c-r>", "<c-v>", opts) ]]
 end

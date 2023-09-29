@@ -1,7 +1,7 @@
 return {
     {
         "Mofiqul/vscode.nvim",
-        prio = 1000,
+        priority = 1000,
         opts = {
             -- Alternatively set style in setup
             style = 'dark',
@@ -32,17 +32,17 @@ return {
             require('vscode').load()
         end,
     },
-    "haishanh/night-owl.vim",
-    "EdenEast/nightfox.nvim",
-    "sainnhe/sonokai",
-    "folke/tokyonight.nvim",
-    { 'rose-pine/neovim', name = 'rose-pine' },
-    "rebelot/kanagawa.nvim",
-    "rafamadriz/neon",
-    {"marko-cerovac/material.nvim", opts = {}},
-    "dracula/vim",
-    "joshdick/onedark.vim",
-    { "bluz71/vim-nightfly-colors", name = "nightfly" },
+    {"haishanh/night-owl.vim", lazy = true},
+    {"EdenEast/nightfox.nvim", lazy = true},
+    {"sainnhe/sonokai", lazy = true},
+    {"folke/tokyonight.nvim", lazy = true},
+    {"rose-pine/neovim", name = "rose-pine", lazy = true},
+    {"rebelot/kanagawa.nvim", lazy = true},
+    {"rafamadriz/neon", lazy = true},
+    {"marko-cerovac/material.nvim", opts = {}, lazy = true},
+    {"dracula/vim", lazy = true},
+    {"joshdick/onedark.vim", lazy = true},
+    {"bluz71/vim-nightfly-colors", name = "nightfly", lazy = true},
 }
 
 -- tokyonight

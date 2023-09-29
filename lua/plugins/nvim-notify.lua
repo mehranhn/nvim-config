@@ -1,5 +1,6 @@
 return {
     "rcarriga/nvim-notify",
+    priority = 999,
     opts = {
         -- Animation style (see below for details)
         stages = "fade_in_slide_out",
@@ -36,5 +37,11 @@ return {
         local notify = require("notify");
         notify.setup(opts);
         vim.notify = notify;
+
+        local status_ok, telescope = pcall(require, "telescope")
+        if not status_ok then
+            return
+        end
+        telescope.load_extension("notify")
     end,
 }

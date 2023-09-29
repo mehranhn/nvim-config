@@ -1,5 +1,6 @@
 return {
     "hood/popui.nvim",
+    enabled = false,
     dependencies = {"RishabhRD/popfix"},
     config = function()
         vim.ui.select = require"popui.ui-overrider"
