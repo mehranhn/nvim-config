@@ -13,10 +13,10 @@ if vim.g.neovide then
 
     -- keymaps
     local opts = { noremap = true, silent = true }
-    vim.api.nvim_set_keymap("n", "<c-c>", "\"+y", opts)
-    vim.api.nvim_set_keymap("v", "<c-c>", "\"+y", opts)
-    vim.api.nvim_set_keymap("n", "<c-v>", "\"+p", opts)
-    vim.api.nvim_set_keymap("i", "<c-v>", "<c-r>+", opts)
-    vim.api.nvim_set_keymap("c", "<c-v>", "<c-r>+", opts)
+    vim.api.nvim_set_keymap("n", "<c-s-c>", "\"+y", opts)
+    vim.api.nvim_set_keymap("v", "<c-s-c>", "\"+y", opts)
+    vim.api.nvim_set_keymap("n", "<c-s-v>", "\"+p", opts)
+    vim.api.nvim_set_keymap("i", "<c-s-v>", "<c-r>+", opts)
+    vim.api.nvim_set_keymap("c", "<c-s-v>", "<c-r>+", opts)
     --[[ vim.api.nvim_set_keymap("i", "<c-r>", "<c-v>", opts) ]]
 end
