@@ -48,6 +48,9 @@ return {
             require("luasnip/loaders/from_vscode").lazy_load()
             vim.g.completeopt="menu,menuone,noselect,noinsert"
         end,
+        dependencies = {
+            "lukas-reineke/cmp-under-comparator",
+        },
         config = function()
             local cmp = require("cmp");
             local luasnip = require("luasnip");
@@ -128,6 +131,18 @@ return {
                     -- { name = 'npm', keyword_length = 4 },
                     { name = "buffer", Keyword_length = 5 },
                     { name = "path" },
+                },
+                sorting = {
+                    comparators = {
+                        cmp.config.compare.offset,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        require "cmp-under-comparator".under,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    },
                 },
                 confirm_opts = {
                     behavior = cmp.ConfirmBehavior.Replace,

@@ -13,6 +13,7 @@ local mappings = {
     w = { "<cmd>w!<CR>", "Save" },
     q = { "<cmd>q!<CR>", "Quit" },
     h = { "<cmd>nohlsearch<CR>", "No Highlight" },
+    u = { "<cmd>Lazy<CR>", "No Highlight" },
 
     a = {
         a = { "<cmd>set invlist<cr>", "Toggle List Mode" },
