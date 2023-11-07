@@ -13,7 +13,7 @@ local mappings = {
     w = { "<cmd>w!<CR>", "Save" },
     q = { "<cmd>q!<CR>", "Quit" },
     h = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    u = { "<cmd>Lazy<CR>", "No Highlight" },
+    u = { "<cmd>Lazy<CR>", "Lazy" },
 
     a = {
         a = { "<cmd>set invlist<cr>", "Toggle List Mode" },
@@ -22,12 +22,12 @@ local mappings = {
 
     c = {
         name = "Buffers/Tabs",
+        a = { "<cmd>bufdo Bdelete<CR>", "Close All Buffers" },
         b = {
             "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
             "Buffers",
         },
         c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-        a = { "<cmd>bufdo Bdelete<CR>", "Close All Buffers" },
         v = { "<cmd>vsplit<CR>", "Split Vertically" },
         x = { "<cmd>split<CR>", "Split Horizontally" },
         t = { "<cmd>tabnew<CR>", "New Tab" },

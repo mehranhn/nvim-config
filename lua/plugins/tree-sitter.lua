@@ -17,7 +17,7 @@ return {
                 highlight = {
                     enable = true, -- false will disable the whole extension
                     disable = { "" }, -- list of language that will be disabled
-                    additional_vim_regex_highlighting = true,
+                    additional_vim_regex_highlighting = false,
                 },
                 indent = { enable = true, disable = { "yaml" } },
                 context_commentstring = {
@@ -51,9 +51,12 @@ return {
             })
         end,
     },
-    "JoosepAlviste/nvim-ts-context-commentstring",
+    {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     {
         "nvim-treesitter/nvim-treesitter-context",
+        enabled = false,
         opts = {
             enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
             max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
@@ -132,8 +135,13 @@ return {
             separator = nil,
         }
     },
-    "windwp/nvim-ts-autotag",
-    "p00f/nvim-ts-rainbow",
+    {
+        "windwp/nvim-ts-autotag",
+    },
+    {
+        "p00f/nvim-ts-rainbow",
+        enabled = false,
+    },
     {
         "mizlan/iswap.nvim",
         opts = {
@@ -162,5 +170,8 @@ return {
             -- autoswap = true
         },
     },
-    "lewis6991/spellsitter.nvim",
+    {
+        "lewis6991/spellsitter.nvim",
+        enabled = false,
+    },
 }

@@ -38,9 +38,11 @@ return {
     "b0o/schemastore.nvim",
     {
         "saecki/crates.nvim",
-        tag = 'v0.1.0',
-        event = { "BufRead Cargo.toml" },
-        dependencies = { "nvim-lua/plenary.nvim" },
+        tag = 'v0.4.0',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('crates').setup()
+        end,
     },
     {
         "hrsh7th/nvim-cmp",
