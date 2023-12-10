@@ -5,6 +5,8 @@ return {
             pcall(require("nvim-treesitter.install").update { with_sync = true })
         end,
         config = function()
+            require("ts_context_commentstring").setup()
+            vim.g.skip_ts_context_commentstring_module = true;
             require("nvim-treesitter.configs").setup({
                 modules = {},
                 auto_install = true,
@@ -20,10 +22,6 @@ return {
                     additional_vim_regex_highlighting = false,
                 },
                 indent = { enable = true, disable = { "yaml" } },
-                context_commentstring = {
-                    enable = true,
-                    enable_autocmd = false,
-                },
                 incremental_selection = {
                     enable = true,
                     keymaps = {
