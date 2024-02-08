@@ -112,6 +112,10 @@ keymap("c", "<C-p>", "<C-r>\"", opts)
 
 -- macro
 keymap("", "Q", "@q", opts)
+keymap("", "F", "@f", opts)
+keymap("", "#", "@w", opts)
+keymap("", "$", "@p", opts)
+keymap("", "^", "@g", opts)
 
 -- spectre
 keymap("v", "<leader>r", "<ESC><CMD>lua require('spectre').open_visual()<CR>", opts)
