@@ -26,5 +26,14 @@ return {
         dap.listeners.before.event_exited["dapui_config"] = function()
             dapui.close()
         end
+
+        local status_ok, wk = pcall(require, "which-key")
+        if not status_ok then
+            return
+        end
+
+        wk.add({
+            { "<leader>dt", function() dapui.toggle() end, desc = "Toggle Dap UI" },
+        });
     end,
 }

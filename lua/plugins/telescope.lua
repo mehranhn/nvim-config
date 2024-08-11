@@ -12,6 +12,8 @@ return {
         config = function()
             local actions = require("telescope.actions");
             local telescope = require("telescope");
+            local builtin = require('telescope.builtin');
+            local themes = require('telescope.themes');
 
             telescope.setup({
                 defaults = {
@@ -132,6 +134,31 @@ return {
             telescope.load_extension('media_files');
             telescope.load_extension('harpoon');
             telescope.load_extension('dap');
+
+            local status_ok, wk = pcall(require, "which-key")
+            if not status_ok then
+                return
+            end
+
+            wk.add({
+                { "<leader>s", group = "Search" },
+                { "<leader>sb", builtin.git_branches, desc = "Checkout Branch" },
+                { "<leader>sc", builtin.colorscheme, desc = "Colorscheme" },
+                { "<leader>sh", "<cmd>Telescope notify<cr>", desc = "Notification History" },
+                { "<leader>sH", builtin.help_tags, desc = "Find Help" },
+                { "<leader>sm", telescope.extensions.media_files.media_files, desc = "Media Files" },
+                { "<leader>sM", builtin.man_pages, desc = "Man Pages" },
+                { "<leader>se", "<cmd>Telescope emoji<cr>", desc = "Emoji" },
+                { "<leader>sp", telescope.extensions.project.project, desc = "Projects" },
+                { "<leader>sr", builtin.oldfiles, desc = "Open Recent File" },
+                { "<leader>sR", builtin.registers, desc = "Registers" },
+                { "<leader>sk", builtin.keymaps, desc = "Keymaps" },
+                { "<leader>sC", builtin.commands, desc = "Commands" },
+                { "<leader>si", "<cmd>Telescope harpoon marks<cr>", desc = "Harpoon Marks" },
+                { "<leader>ss", function () builtin.find_files(themes.get_dropdown{previewer = false}) end, desc = "Find files" },
+                { "<leader>sS", builtin.live_grep, desc = "Find Text" },
+                { "<leader>sf", builtin.filetypes, desc = "File Types" },
+            });
         end,
     },
 }

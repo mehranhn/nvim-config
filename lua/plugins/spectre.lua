@@ -55,4 +55,20 @@ return {
             -- you can put your mapping here it only use normal mode
         },
     },
+    config = function(_, opts)
+        local spectre = require('spectre');
+        spectre.setup(opts);
+
+        local status_ok, wk = pcall(require, "which-key")
+        if not status_ok then
+            return
+        end
+
+        wk.add({
+            { "<leader>rR", function () spectre.open_file_search() end, desc = "Replace Current File" },
+            { "<leader>rs", function () spectre.open() end, desc = "Replace Workspace" },
+            { "<leader>rS", function () spectre.open_visual() end, desc = "Replace Workspace (Visual)" },
+            { "<leader>rS", function () spectre.open_visual({ select_word = true }) end, desc = "Replace Workspace (Word)" },
+        });
+    end,
 }

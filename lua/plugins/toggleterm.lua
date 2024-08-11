@@ -39,47 +39,23 @@ return {
         vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
         local Terminal = require("toggleterm.terminal").Terminal
-
         local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-
-        function _LAZYGIT_TOGGLE()
-            lazygit:toggle()
-        end
-
-        local lazydocker = Terminal:new({ cmd = "lazydocker", hidden = true })
-
-        function _LAZYDOCKER_TOGGLE()
-            lazydocker:toggle()
-        end
-
-        local node = Terminal:new({ cmd = "node", hidden = true })
-
-        function _NODE_TOGGLE()
-            node:toggle()
-        end
-
-        -- local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
-        --
-        -- function _NCDU_TOGGLE()
-        --     ncdu:toggle()
-        -- end
-
-        local tmux = Terminal:new({ cmd = "tmux", hidden = true })
-
-        function _TMUX_TOGGLE()
-            tmux:toggle()
-        end
-
         local htop = Terminal:new({ cmd = "htop", hidden = true })
+        local btop = Terminal:new({ cmd = "btop", hidden = true })
 
-        function _HTOP_TOGGLE()
-            htop:toggle()
+        local status_ok, wk = pcall(require, "which-key")
+        if not status_ok then
+            return
         end
 
-        local python = Terminal:new({ cmd = "python", hidden = true })
-
-        function _PYTHON_TOGGLE()
-            python:toggle()
-        end
+        wk.add({
+            { "<leader>t", group = "Terminal" },
+            { "<leader>tg", function() lazygit:toggle() end, desc = "Lazygit" },
+            { "<leader>th", function() htop:toggle() end, desc = "Htop" },
+            { "<leader>tb", function() btop:toggle() end, desc = "Btop" },
+            { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Float" },
+            { "<leader>tx", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal" },
+            { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
+        });
     end,
 }

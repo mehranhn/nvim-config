@@ -48,7 +48,32 @@ return {
             row = 0,
             col = 1
         },
-    }
+    },
+    config = function(_, opts)
+        local gitsigns = require("gitsigns");
+        gitsigns.setup(opts);
+
+        local status_ok, wk = pcall(require, "which-key")
+        if not status_ok then
+            return
+        end
+
+        wk.add({
+            { "<leader>g", group = "Git" },
+            { "<leader>gn", function() gitsigns.next_hunk() end, desc = "Next Hunk" },
+            { "<leader>ge", function() gitsigns.prev_hunk() end, desc = "Prev Hunk" },
+            { "<leader>gl", function() gitsigns.blame_line() end, desc = "Blame" },
+            { "<leader>gp", function() gitsigns.preview_hunk() end, desc = "Preview Hunk" },
+            { "<leader>gr", function() gitsigns.reset_hunk() end, desc = "Reset Hunk" },
+            { "<leader>gR", function() gitsigns.reset_buffer() end, desc = "Reset Buffer" },
+            { "<leader>gs", function() gitsigns.stage_hunk() end, desc = "Stage Hunk" },
+            { "<leader>gu", function() gitsigns.undo_stage_hunk() end, desc = "Undo Stage Hunk" },
+            { "<leader>go", "<cmd>Telescope git_status<cr>", desc = "Open changed file" },
+            { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+            { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit" },
+            { "<leader>gD", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
+        });
+    end,
     -- opts = { 
     --     signs = { 
     --         --[[ add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" }, ]] 
