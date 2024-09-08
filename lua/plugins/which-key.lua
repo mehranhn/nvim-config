@@ -72,7 +72,7 @@ return {
             { "<leader>nl", function() vim.diagnostic.open_float() end, desc = "Line Diagnostics" },
 
             { "<leader>r", group = "Replace" },
-            { "<leader>rt", "<CMD>ISwap<CR>", "ISwap"},
+            { "<leader>rt", "<CMD>ISwap<CR>", desc = "ISwap"},
         },
     }
 }
