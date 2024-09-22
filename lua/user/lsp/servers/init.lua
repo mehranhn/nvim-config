@@ -18,6 +18,7 @@ require("user.lsp.servers.rust_analyzer").setup()
 -- require("user.lsp.servers.sqlls")
 -- require("user.lsp.servers.sqls")
 -- require("user.lsp.servers.tailwindcss")
-require("user.lsp.servers.tsserver")
+require("user.lsp.servers.ts_ls")
+--[[ require("user.lsp.servers.tsserver") ]]
 require("user.lsp.servers.vimls")
 require("user.lsp.servers.yamlls")
