@@ -33,6 +33,10 @@ vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.listchars = "tab:▷▷⋮"
 vim.opt.mousemodel = "extend"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
 
 vim.opt.shortmess:append "c"
 
