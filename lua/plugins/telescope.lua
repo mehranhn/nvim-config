@@ -110,7 +110,7 @@ return {
                     project = {
                         base_dirs = {
                             {'~/.src/', max_depth = 2},
-                            {'~/Projects', max_depth = 4},
+                            {'/.files/Projects', max_depth = 4},
                         },
                     },
                     media_files = {

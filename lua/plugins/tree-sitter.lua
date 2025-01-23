@@ -10,8 +10,8 @@ return {
             require("nvim-treesitter.configs").setup({
                 modules = {},
                 auto_install = true,
-                ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-                sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+                ensure_installed = { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" },
+                sync_install = true, -- install languages synchronously (only applied to `ensure_installed`)
                 ignore_install = { "" }, -- List of parsers to ignore installing
                 autopairs = {
                     enable = true,

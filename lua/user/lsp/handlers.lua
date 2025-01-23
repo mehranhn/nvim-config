@@ -47,7 +47,7 @@ end
 local function lsp_highlight_document(client)
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.document_highlight then
-        vim.api.nvim_exec(
+        vim.api.nvim_exec2(
             [[
                 augroup lsp_document_highlight
                 autocmd! * <buffer>
@@ -55,7 +55,7 @@ local function lsp_highlight_document(client)
                 autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
                 augroup END
             ]],
-            false
+            { output = false }
         )
     end
 end
@@ -63,7 +63,8 @@ end
 local function lsp_keymaps(bufnr)
     local status_ok, which_key = pcall(require, "which-key")
     if not status_ok then
-        local opts = { noremap  = true, silent = true }
+        local opts = { noremap = true, silent = true }
+
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>TroubleToggle lsp_definitions<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -85,27 +86,18 @@ local function lsp_keymaps(bufnr)
         -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
         -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
     else
-        local opts = {
-            mode = "n", -- NORMAL mode
-            prefix = "g",
-            buffer = bufnr, -- Global mappings. Specify a buffer number for buffer local mappings
-            silent = true, -- use `silent` when creating keymaps
-            noremap = true, -- use `noremap` when creating keymaps
-            nowait = true, -- use `nowait` when creating keymaps
-        }
-        local map = {
-            D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration"},
-            d = {"<cmd>TroubleToggle lsp_definitions<CR>", "Definitions"},
-            h = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Hover"},
-            i = {"<cmd>TroubleToggle lsp_implementations<CR>", "Implementations"},
-            H = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
-            r = {"<cmd>TroubleToggle lsp_references<CR>", "References"},
-            l = {"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>", "Line Diagnostics"},
-            R = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename"},
-            a = {"<cmd>TroubleToggle loclist<cr>", "Code Actions"},
-            A = {"<cmd>TroubleToggle quickfix<cr>", "Quickfix"},
-        }
-        which_key.register(map, opts)
+        which_key.add({
+            { "gD", function() vim.lsp.buf.declaration() end,                                        buffer = bufnr, desc = "Declaration" },
+            { "gd", "<cmd>TroubleToggle lsp_definitions<CR>",                                        buffer = bufnr, desc = "Definitions" },
+            { "gh", function() vim.lsp.buf.hover() end,                                              buffer = bufnr, desc = "Hover" },
+            { "gi", "<cmd>TroubleToggle lsp_implementations<CR>",                                    buffer = bufnr, desc = "Implementations" },
+            { "gH", function() vim.lsp.buf.signature_help() end,                                     buffer = bufnr, desc = "Signature Help" },
+            { "gr", "<cmd>TroubleToggle lsp_implementations<CR>",                                    buffer = bufnr, desc = "Implementations" },
+            { "gl", function() vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' }) end, buffer = bufnr, desc = "Line Diagnostics" },
+            { "gR", function() vim.lsp.buf.rename() end,                                             buffer = bufnr, desc = "Rename" },
+            { "ga", "<cmd>TroubleToggle loclist<CR>",                                                buffer = bufnr, desc = "Code Actions" },
+            { "gA", "<cmd>TroubleToggle quickfix<CR>",                                               buffer = bufnr, desc = "Quickfix" },
+        });
     end
 end
 
