@@ -1,6 +1,6 @@
 require("user.lsp.servers.clangd")
 require("user.lsp.servers.lua_ls")
-require("user.lsp.servers.rust_analyzer").setup()
+-- require("user.lsp.servers.rust_analyzer").setup()
 
 -- require("user.lsp.servers.buf_ls")
 -- require("user.lsp.servers.ccls")
