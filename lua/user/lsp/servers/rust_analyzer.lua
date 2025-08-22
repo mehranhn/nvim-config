@@ -4,7 +4,16 @@ local M = {}
 
 M.capabilities = capabilities
 
-M.on_attach = require("user.lsp.handlers").on_attach
+M.on_attach = function(client, bufnr)
+    require("user.lsp.handlers").on_attach(client, bufnr)
+    vim.lsp.codelens.refresh()
+    local group = vim.api.nvim_create_augroup("RustCodeLens", { clear = true })
+    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+        group = group,
+        buffer = bufnr,
+        callback = vim.lsp.codelens.refresh,
+    })
+end
 
 M.settings = {
     ["rust-analyzer"] = {
@@ -23,6 +32,21 @@ M.settings = {
             --[[ ignored = { ]]
             --[[     ["async_trait"] = {"async_trait"}, ]]
             --[[ }, ]]
+        },
+        lens = {
+            enable = true,
+            location = "above_name",
+            references = {
+                adt = {
+                    enable = true
+                },
+                method = {
+                    enable = true
+                },
+                trait = {
+                    enable = true
+                },
+            },
         },
     }
 }

@@ -52,7 +52,7 @@ return {
                 -- setting it to false may improve startup time
                 standalone = false,
                 on_attach = on_attach,
-                default_settings = r.settings,
+                settings = r.settings,
             },
         }
     end,
