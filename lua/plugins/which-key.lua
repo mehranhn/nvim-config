@@ -53,7 +53,8 @@ return {
             { "<leader>im", "<cmd>Telescope harpoon marks<CR>", desc = "Menu (Telescope)" },
 
             { "<leader>n", group = "Lsp" },
-            { "<leader>nf", function() vim.lsp.buf.format() end, desc = "Format" },
+            { "<leader>nf", function() require("conform").format() end, desc = "Format" },
+            { "<leader>nF", function() require("conform").format({ async = true }) end, desc = "Format Async" },
             { "<leader>nI", "<cmd>LspInfo<cr>", desc = "Info" },
             { "<leader>nn", function() vim.diagnostic.jump({ count = 1, float = true }) end, desc = "Next Diagnostic" },
             { "<leader>ne", function() vim.diagnostic.jump({ count = -1, float = true }) end, desc = "Prev Diagnostic" },
