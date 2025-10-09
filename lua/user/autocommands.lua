@@ -56,35 +56,47 @@ vim.api.nvim_create_autocmd("VimResized", {
 -- Alpha settings
 vim.api.nvim_create_augroup("_alpha", { clear = true })
 vim.api.nvim_create_autocmd("User", {
-  group = "_alpha",
-  pattern = "AlphaReady",
-  callback = function()
-    vim.opt.showtabline = 0
-    vim.api.nvim_create_autocmd("BufUnload", {
-      buffer = 0,
-      callback = function()
-        vim.opt.showtabline = 2
-      end,
-    })
-  end,
+    group = "_alpha",
+    pattern = "AlphaReady",
+    callback = function()
+        vim.opt.showtabline = 0
+        vim.api.nvim_create_autocmd("BufUnload", {
+            buffer = 0,
+            callback = function()
+                vim.opt.showtabline = 2
+            end,
+        })
+    end,
 })
 
 -- Crates settings
 vim.api.nvim_create_augroup("_cartes", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  group = "_cartes",
-  pattern = "toml",
-  callback = function()
-    require("cmp").setup.buffer({ sources = { { name = "crates" } } })
-  end,
+    group = "_cartes",
+    pattern = "toml",
+    callback = function()
+        require("cmp").setup.buffer({ sources = { { name = "crates" } } })
+    end,
 })
 
 vim.api.nvim_create_augroup("_highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  group = "_highlight_yank",
-  desc = 'Hightlight selection on yank',
-  pattern = '*',
-  callback = function()
-    vim.hl.on_yank { higroup = 'IncSearch', timeout = 200 }
-  end,
+    group = "_highlight_yank",
+    desc = 'Hightlight selection on yank',
+    pattern = '*',
+    callback = function()
+        vim.hl.on_yank { higroup = 'IncSearch', timeout = 200 }
+    end,
 })
+
+-- completions
+-- vim.api.nvim_create_augroup("_auto_complnetes", { clear = true })
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--     group = "_auto_complnetes",
+--     callback = function(ev)
+--         local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--         if client ~= nil and client:supports_method('textDocument/completion') then
+--             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+--         end
+--     end,
+-- })

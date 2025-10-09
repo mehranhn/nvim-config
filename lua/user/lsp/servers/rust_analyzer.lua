@@ -1,4 +1,4 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local M = {}
 
@@ -6,13 +6,13 @@ M.capabilities = capabilities
 
 M.on_attach = function(client, bufnr)
     require("user.lsp.handlers").on_attach(client, bufnr)
-    vim.lsp.codelens.refresh()
-    local group = vim.api.nvim_create_augroup("RustCodeLens", { clear = true })
-    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-        group = group,
-        buffer = bufnr,
-        callback = vim.lsp.codelens.refresh,
-    })
+    -- vim.lsp.codelens.refresh()
+    -- local group = vim.api.nvim_create_augroup("RustCodeLens", { clear = true })
+    -- vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+    --     group = group,
+    --     buffer = bufnr,
+    --     callback = vim.lsp.codelens.refresh,
+    -- })
 end
 
 M.settings = {

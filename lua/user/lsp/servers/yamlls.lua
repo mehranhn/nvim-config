@@ -1,10 +1,11 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('lspconfig').yamlls.setup {
-    on_attach = require("user.lsp.handlers").on_attach,
-    capabilities = capabilities,
+local handlers = require("user.lsp.handlers")
+
+vim.lsp.config('yamlls', {
+    capabilities = handlers.capabilities(),
+    on_attach = handlers.on_attach,
     settings = {
         yaml = {
             schemas = require('schemastore').json.schemas(),
         },
     }
-}
+})

@@ -1,7 +1,6 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local pid = vim.fn.getpid()
+local handlers = require("user.lsp.handlers")
 
-require'lspconfig'.omnisharp.setup{
-    cmd = { "/usr/bin/omnisharp", "--languageserver" , "--hostPID", tostring(pid) };
-    capabilities = capabilities,
-}
+vim.lsp.config("omnisharp", {
+    capabilities = handlers.capabilities(),
+    on_attach = handlers.on_attach,
+})

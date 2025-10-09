@@ -1,5 +1,6 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('lspconfig').tailwindcss.setup{
-    on_attach = require("user.lsp.handlers").on_attach,
-    capabilities = capabilities,
-}
+local handlers = require("user.lsp.handlers")
+
+vim.lsp.config("tailwindcss", {
+    capabilities = handlers.capabilities(),
+    on_attach = handlers.on_attach,
+})

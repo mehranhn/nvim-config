@@ -1,7 +1,8 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local handlers = require("user.lsp.handlers")
+local capabilities = handlers.capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require('lspconfig').html.setup {
-    on_attach = require("user.lsp.handlers").on_attach,
+vim.lsp.config("html", {
     capabilities = capabilities,
-}
+    on_attach = handlers.on_attach,
+})

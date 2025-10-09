@@ -1,17 +1,18 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('lspconfig').ccls.setup {
-    on_attach = require("user.lsp.handlers").on_attach,
-    capabilities = capabilities,
+local handlers = require("user.lsp.handlers")
+
+vim.lsp.config("ccls", {
+    capabilities = handlers.capabilities(),
+    on_attach = handlers.on_attach,
     init_options = {
         cache = {
-            directory = "/tmp/ccls";
+            directory = "/tmp/ccls",
         },
-        compilationDatabaseDirectory = "build";
+        compilationDatabaseDirectory = "build",
         index = {
-            threads = 0;
-        };
+            threads = 0,
+        },
         clang = {
-            excludeArgs = { "-frounding-math"} ;
-        };
+            excludeArgs = { "-frounding-math" },
+        },
     }
-}
+})

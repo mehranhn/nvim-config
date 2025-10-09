@@ -1,10 +1,12 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local handlers = require("user.lsp.handlers")
 local status_ok = pcall(require, "jester")
 local wstatus_ok, which_key = pcall(require, "which-key")
-require('lspconfig').ts_ls.setup{
+
+vim.lsp.config('ts_ls', {
     on_attach = function(client, bufnr)
+    capabilities = handlers.capabilities(),
+        handlers.on_attach(client, bufnr)
         client.server_capabilities.document_formatting = false
-        require("user.lsp.handlers").on_attach(client, bufnr)
         if status_ok then
             if not wstatus_ok then
                 local opts = { noremap  = true, silent = true }
@@ -38,5 +40,4 @@ require('lspconfig').ts_ls.setup{
             end
         end
     end,
-    capabilities = capabilities,
-}
+})

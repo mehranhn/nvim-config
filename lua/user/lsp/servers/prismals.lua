@@ -1,6 +1,6 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local handlers = require("user.lsp.handlers")
 
-require('lspconfig').prismals.setup{
-    on_attach = require("user.lsp.handlers").on_attach,
-    capabilities = capabilities,
-}
+vim.lsp.config("prismals", {
+    capabilities = handlers.capabilities(),
+    on_attach = handlers.on_attach,
+})

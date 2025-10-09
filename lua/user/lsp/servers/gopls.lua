@@ -1,7 +1,8 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local handlers = require("user.lsp.handlers")
 local status_ok = pcall(require, "dap-go")
 local wstatus_ok, which_key = pcall(require, "which-key")
-require('lspconfig').gopls.setup {
+
+vim.lsp.config("gopls", {
     cmd = {"gopls", "serve"},
     filetypes = {"go", "gomod"},
     root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
@@ -13,8 +14,9 @@ require('lspconfig').gopls.setup {
             staticcheck = true,
         },
     },
+    capabilities = handlers.capabilities(),
     on_attach = function(client, bufnr)
-        require("user.lsp.handlers").on_attach(client, bufnr)
+        handlers.on_attach(client, bufnr)
         if status_ok then
             if not wstatus_ok then
                 local opts = { noremap  = true, silent = true }
@@ -38,5 +40,4 @@ require('lspconfig').gopls.setup {
             end
         end
     end,
-    capabilities = capabilities,
-}
+})
