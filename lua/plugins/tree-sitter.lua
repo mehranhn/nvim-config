@@ -150,6 +150,7 @@ return {
     },
     {
         "mizlan/iswap.nvim",
+        event = "VeryLazy",
         opts = {
             -- The keys that will be used as a selection, in order
             -- ('asdfghjklqwertyuiopzxcvbnm' by default)
