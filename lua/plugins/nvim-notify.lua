@@ -1,6 +1,7 @@
 return {
     "rcarriga/nvim-notify",
     priority = 999,
+    enabled = false,
     opts = {
         -- Animation style (see below for details)
         stages = "fade_in_slide_out",
