@@ -56,6 +56,7 @@ return {
             { "<leader>nf", function() require("conform").format() end, desc = "Format" },
             { "<leader>nF", function() require("conform").format({ async = true }) end, desc = "Format Async" },
             { "<leader>nI", "<cmd>LspInfo<cr>", desc = "Info" },
+            { "<leader>nK", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, desc = "Toggle Inlay Hints" },
             { "<leader>nn", function() vim.diagnostic.jump({ count = 1, float = true }) end, desc = "Next Diagnostic" },
             { "<leader>ne", function() vim.diagnostic.jump({ count = -1, float = true }) end, desc = "Prev Diagnostic" },
             { "<leader>nA", function() vim.diagnostic.setloclist() end, desc = "Quickfix" },
