@@ -13,6 +13,13 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>od", "<cmd>lua vim.cmd.RustLsp('joinLines')<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ok", "<cmd>lua vim.cmd.RustLsp { 'view', 'mir' }<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oK", "<cmd>lua vim.cmd.RustLsp { 'view', 'hir' }<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oD", "<cmd>lua vim.cmd.RustLsp { 'openDocs' }<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oh", "<cmd>lua vim.cmd.RustLsp { 'parentModule' }<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>of", "<cmd>lua vim.cmd.RustLsp { 'flyCheck', 'run' }<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oF", "<cmd>lua vim.cmd.RustLsp { 'flyCheck', 'clear' }<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>oQ", "<cmd>lua vim.cmd.RustAnalyzer { 'restart' }<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>o1", "<cmd>lua vim.cmd.RustAnalyzer { 'config', '{ check = { command = \"check\" } }' }<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>o2", "<cmd>lua vim.cmd.RustAnalyzer { 'config', '{ check = { command = \"clippy\" } }' }<CR>", opts)
     else
         which_key.add({
             { "or", function() vim.cmd.RustLsp('run') end,            buffer = bufnr, desc = "Run" },
@@ -23,6 +30,13 @@ local on_attach = function(client, bufnr)
             { "od", function() vim.cmd.RustLsp('joinLines') end,      buffer = bufnr, desc = "Join Lines" },
             { "ok", function() vim.cmd.RustLsp { 'view', 'mir' } end, buffer = bufnr, desc = "View MIR" },
             { "oK", function() vim.cmd.RustLsp { 'view', 'hir' } end, buffer = bufnr, desc = "View HIR" },
+            { "oD", function() vim.cmd.RustLsp { 'openDocs' } end,    buffer = bufnr, desc = "Open Docs" },
+            { "oh", function() vim.cmd.RustLsp { 'parentModule' } end,    buffer = bufnr, desc = "Parent Module" },
+            { "of", function() vim.cmd.RustLsp { 'flyCheck', 'run' } end,    buffer = bufnr, desc = "Fly Check Run" },
+            { "oF", function() vim.cmd.RustLsp { 'flyCheck', 'clear' } end,    buffer = bufnr, desc = "Fly Check Clear" },
+            { "oQ", function() vim.cmd.RustAnalyzer { 'restart' } end,    buffer = bufnr, desc = "Restart" },
+            { "o1", function() vim.cmd.RustAnalyzer { 'config', '{ check = { command = "check" } }' } end,    buffer = bufnr, desc = "Switch to cargo check" },
+            { "o2", function() vim.cmd.RustAnalyzer { 'config', '{ check = { command = "clippy" } }' } end,    buffer = bufnr, desc = "Switch to cargo clippy" },
         })
     end
 end

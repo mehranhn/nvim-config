@@ -17,6 +17,7 @@ end
 
 M.settings = {
     ["rust-analyzer"] = {
+        checkOnSave = true,
         cargo = {
             loadOutDirsFromCheck = true,
             runBuildScripts = true,
