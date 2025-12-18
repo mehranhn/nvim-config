@@ -24,7 +24,7 @@ local kind_icons = {
     Event = "",
     Operator = "",
     TypeParameter = "",
-};
+}
 
 return {
     "hrsh7th/cmp-nvim-lsp",
@@ -38,24 +38,24 @@ return {
     "b0o/schemastore.nvim",
     {
         "saecki/crates.nvim",
-        tag = 'v0.4.0',
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        tag = "v0.4.0",
+        dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-            require('crates').setup()
+            require("crates").setup()
         end,
     },
     {
         "hrsh7th/nvim-cmp",
         init = function()
             require("luasnip/loaders/from_vscode").lazy_load()
-            vim.g.completeopt="menu,menuone,noselect,noinsert"
+            vim.g.completeopt = "menu,menuone,noselect,noinsert"
         end,
         dependencies = {
             "lukas-reineke/cmp-under-comparator",
         },
         config = function()
-            local cmp = require("cmp");
-            local luasnip = require("luasnip");
+            local cmp = require("cmp")
+            local luasnip = require("luasnip")
 
             cmp.setup({
                 snippet = {
@@ -65,47 +65,19 @@ return {
                 },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-e>"] = {
-                        i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-                    },
-                    ["<C-n>"] = {
-                        i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                        i = function()
+                            if cmp.visible() then
+                                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+                            else
+                                cmp.complete()
+                            end
+                        end,
                     },
                     ["<C-k>"] = {
                         i = cmp.mapping.abort(),
-                        c = cmp.mapping.close(),
                     },
                     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-                    -- Accept currently selected item. If none selected, `select` first item.
-                    -- Set `select` to `false` to only confirm explicitly selected items.
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                    -- ["<Tab>"] = cmp.mapping(function(fallback)
-                    --     if cmp.visible() then
-                    --         cmp.select_next_item()
-                    --     elseif luasnip.expandable() then
-                    --         luasnip.expand()
-                    --     elseif luasnip.expand_or_jumpable() then
-                    --         luasnip.expand_or_jump()
-                    --     elseif check_backspace() then
-                    --         fallback()
-                    --     else
-                    --         fallback()
-                    --     end
-                    -- end, {
-                    --     "i",
-                    --     "s",
-                    -- }),
-                    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-                    --     if cmp.visible() then
-                    --         cmp.select_prev_item()
-                    --     elseif luasnip.jumpable(-1) then
-                    --         luasnip.jump(-1)
-                    --     else
-                    --         fallback()
-                    --     end
-                    -- end, {
-                    --     "i",
-                    --     "s",
-                    -- }),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
                 }),
                 formatting = {
                     fields = { "kind", "abbr", "menu" },
@@ -131,7 +103,7 @@ return {
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     -- { name = 'npm', keyword_length = 4 },
-                    { name = "buffer", Keyword_length = 5 },
+                    { name = "buffer",  Keyword_length = 5 },
                     { name = "path" },
                 },
                 sorting = {
@@ -139,17 +111,17 @@ return {
                         cmp.config.compare.offset,
                         cmp.config.compare.exact,
                         cmp.config.compare.score,
-                        require "cmp-under-comparator".under,
+                        require("cmp-under-comparator").under,
                         cmp.config.compare.kind,
                         cmp.config.compare.sort_text,
                         cmp.config.compare.length,
                         cmp.config.compare.order,
                     },
                 },
-                confirm_opts = {
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = false,
-                },
+                -- confirm_opts = {
+                --     behavior = cmp.ConfirmBehavior.Replace,
+                --     select = false,
+                -- },
                 window = {
                     documentation = {
                         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
@@ -159,8 +131,8 @@ return {
                     ghost_text = true,
                     native_menu = false,
                 },
-            });
-            cmp.setup.cmdline('/', {
+            })
+            cmp.setup.cmdline("/", {
                 mapping = cmp.mapping.preset.cmdline({
                     ["<C-e>"] = {
                         i = cmp.mapping.select_prev_item(),
@@ -168,10 +140,10 @@ return {
                     },
                 }),
                 sources = {
-                    { name = 'buffer' },
+                    { name = "buffer" },
                 },
-            });
-            cmp.setup.cmdline(':', {
+            })
+            cmp.setup.cmdline(":", {
                 mapping = cmp.mapping.preset.cmdline({
                     ["<C-e>"] = {
                         i = cmp.mapping.select_prev_item(),
@@ -179,10 +151,10 @@ return {
                     },
                 }),
                 sources = {
-                    { name = 'path' },
-                    { name = 'cmdline' },
+                    { name = "path" },
+                    { name = "cmdline" },
                 },
-            });
-        end
+            })
+        end,
     },
 }
