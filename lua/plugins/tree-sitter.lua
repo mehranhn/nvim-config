@@ -1,9 +1,9 @@
 return {
     {
-        "nvim-treesitter/nvim-treesitter",
-        build = function ()
-            pcall(require("nvim-treesitter.install").update { with_sync = true })
-        end,
+        "neovim-treesitter/nvim-treesitter",
+        dependencies = { 'neovim-treesitter/treesitter-parser-registry' },
+        lazy = false,
+        build = ':TSUpdate',
         config = function()
             require("ts_context_commentstring").setup({
                 config = {
@@ -18,7 +18,7 @@ return {
                 }
             })
             vim.g.skip_ts_context_commentstring_module = true;
-            require("nvim-treesitter.configs").setup({
+            require("nvim-treesitter").setup({
                 modules = {},
                 auto_install = true,
                 ensure_installed = { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" },
@@ -57,6 +57,15 @@ return {
                     },
                     disable = { "html", "jsx" },
                 },
+            })
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" },
+                callback = function()
+                    vim.treesitter.start()
+                    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                    vim.wo.foldmethod = 'expr'
+                    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
             })
         end,
     },
@@ -145,10 +154,6 @@ return {
         "windwp/nvim-ts-autotag",
     },
     {
-        "p00f/nvim-ts-rainbow",
-        enabled = false,
-    },
-    {
         "mizlan/iswap.nvim",
         event = "VeryLazy",
         opts = {
@@ -176,9 +181,5 @@ return {
             -- default nil
             -- autoswap = true
         },
-    },
-    {
-        "lewis6991/spellsitter.nvim",
-        enabled = false,
     },
 }

@@ -1,5 +1,6 @@
 return {
     "tversteeg/registers.nvim",
+    enabled = false,
     config = function()
         local registers = require("registers");
         registers.setup({
