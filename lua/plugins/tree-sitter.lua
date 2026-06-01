@@ -18,46 +18,47 @@ return {
                 }
             })
             vim.g.skip_ts_context_commentstring_module = true;
-            require("nvim-treesitter").setup({
-                modules = {},
-                auto_install = true,
-                ensure_installed = { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" },
-                sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-                ignore_install = { "" }, -- List of parsers to ignore installing
-                autopairs = {
-                    enable = true,
-                },
-                highlight = {
-                    enable = true, -- false will disable the whole extension
-                    disable = { "" }, -- list of language that will be disabled
-                    additional_vim_regex_highlighting = false,
-                },
-                indent = { enable = true, disable = { "yaml" } },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = "gd",
-                        node_incremental = "gn",
-                        scope_incremental = "gh",
-                        node_decremental = "ge",
-                    },
-                },
-                autotag = {
-                    enable = true,
-                },
-                rainbow = {
-                    enable = true,
-                    colors = {
-                        "Gold",
-                        "Orchid",
-                        "DodgerBlue",
-                        -- "Cornsilk",
-                        -- "Salmon",
-                        -- "LawnGreen",
-                    },
-                    disable = { "html", "jsx" },
-                },
-            })
+            require('nvim-treesitter').install { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" }
+            -- require("nvim-treesitter").setup({
+            --     modules = {},
+            --     auto_install = true,
+            --     ensure_installed = { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" },
+            --     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+            --     ignore_install = { "" }, -- List of parsers to ignore installing
+            --     autopairs = {
+            --         enable = true,
+            --     },
+            --     highlight = {
+            --         enable = true, -- false will disable the whole extension
+            --         disable = { "" }, -- list of language that will be disabled
+            --         additional_vim_regex_highlighting = false,
+            --     },
+            --     indent = { enable = true, disable = { "yaml" } },
+            --     incremental_selection = {
+            --         enable = true,
+            --         keymaps = {
+            --             init_selection = "gd",
+            --             node_incremental = "gn",
+            --             scope_incremental = "gh",
+            --             node_decremental = "ge",
+            --         },
+            --     },
+            --     autotag = {
+            --         enable = true,
+            --     },
+            --     rainbow = {
+            --         enable = true,
+            --         colors = {
+            --             "Gold",
+            --             "Orchid",
+            --             "DodgerBlue",
+            --             -- "Cornsilk",
+            --             -- "Salmon",
+            --             -- "LawnGreen",
+            --         },
+            --         disable = { "html", "jsx" },
+            --     },
+            -- })
             vim.api.nvim_create_autocmd('FileType', {
                 pattern = { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" },
                 callback = function()
