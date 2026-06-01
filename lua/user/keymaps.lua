@@ -40,6 +40,16 @@ keymap("n", "U", "<CMD>redo<CR>", opts)
 keymap("n", ",", "n", opts)
 keymap("n", ".", "N", opts)
 
+-- Delete all keybindings starting with 'i' in Visual mode
+local mappings = vim.api.nvim_get_keymap('v')
+for _, mapping in ipairs(mappings) do
+  if mapping.lhs:sub(1, 1) == 'i' then
+    pcall(vim.api.nvim_del_keymap, 'v', mapping.lhs)
+    pcall(vim.api.nvim_del_keymap, 'x', mapping.lhs)
+    pcall(vim.api.nvim_del_keymap, 's', mapping.lhs)
+  end
+end
+
 -- navigation
 -- nxomap("h", "h", opts)
 nxomap("n", "j", opts)
