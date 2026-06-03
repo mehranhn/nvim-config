@@ -60,7 +60,7 @@ return {
             --     },
             -- })
             vim.api.nvim_create_autocmd('FileType', {
-                pattern = { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" },
+                pattern = { "asm", "bash", "c", "cmake", "cpp", "css", "csv", "cuda", "dart", "dockerfile", "editorconfig", "fish", "glsl", "go", "gomod", "html", "ini", "java", "javascript", "javascriptreact", "jsdoc", "json", "json5", "kotlin", "latex", "lua", "make", "markdown", "meson", "odin", "php", "powershell", "prisma", "proto", "python", "r", "ron", "rust", "scss", "slint", "solidity", "sql", "sshconfig", "svelte", "sway", "tmux", "tsx", "typescript", "typescriptreact", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "yaml", "zig" },
                 callback = function()
                     vim.treesitter.start()
                     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
