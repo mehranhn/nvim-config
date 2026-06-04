@@ -1,74 +1,27 @@
 return {
     {
-        "neovim-treesitter/nvim-treesitter",
-        dependencies = { 'neovim-treesitter/treesitter-parser-registry' },
-        lazy = false,
-        build = ':TSUpdate',
+        "romus204/tree-sitter-manager.nvim",
+        dependencies = {},
         config = function()
-            require("ts_context_commentstring").setup({
-                config = {
-                    javascript = {
-                        __default = '// %s',
-                        jsx_element = '{/* %s */}',
-                        jsx_fragment = '{/* %s */}',
-                        jsx_attribute = '// %s',
-                        comment = '// %s',
-                    },
-                    typescript = { __default = '// %s', __multiline = '/* %s */' },
-                }
+            require("tree-sitter-manager").setup({
+              -- Default Options
+              -- ensure_installed = {}, -- list of parsers to install at the start of a neovim session. If set to "all", install all parsers.
+              ensure_installed = { "angular", "arduino", "asm", "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "ecma", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gosum", "gpg", "haskell", "hlsl", "html", "html_tags", "http", "hurl", "hyprlang", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "jsx", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "markdown_inline", "meson", "nginx", "ninja", "odin", "passwd", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "swift", "tmux", "toml", "tsv", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema", "zsh" },
+              -- border = nil, -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
+              -- auto_install = false, -- if enabled, install missing parsers when editing a new file
+              -- highlight = true, -- treesitter highlighting is enabled by default
+              -- languages = {}, -- override or add new parser sources
             })
-            vim.g.skip_ts_context_commentstring_module = true;
-            require('nvim-treesitter').install { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "ecma", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" }
-            -- require("nvim-treesitter").setup({
-            --     modules = {},
-            --     auto_install = true,
-            --     ensure_installed = { "asm", "bash", "c", "cmake", "comment", "cpp", "css", "csv", "cuda", "dart", "desktop", "diff", "disassembly", "dockerfile", "editorconfig", "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "glsl", "go", "gomod", "gpg", "html", "hlsl", "hurl", "http", "ini", "java", "javascript", "jq", "jsdoc", "json", "json5", "kotlin", "latex", "llvm", "lua", "luadoc", "luau", "make", "markdown", "meson", "nginx", "ninja", "odin", "php", "powershell", "printf", "prisma", "proto", "python", "r", "regex", "ron", "rust", "scss", "slint", "solidity", "sql", "ssh_config", "svelte", "sway", "tmux", "tsx", "typescript", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "wgsl_bevy", "yaml", "yuck", "zathurarc", "zig", "ziggy", "ziggy_schema" },
-            --     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-            --     ignore_install = { "" }, -- List of parsers to ignore installing
-            --     autopairs = {
-            --         enable = true,
-            --     },
-            --     highlight = {
-            --         enable = true, -- false will disable the whole extension
-            --         disable = { "" }, -- list of language that will be disabled
-            --         additional_vim_regex_highlighting = false,
-            --     },
-            --     indent = { enable = true, disable = { "yaml" } },
-            --     incremental_selection = {
-            --         enable = true,
-            --         keymaps = {
-            --             init_selection = "gd",
-            --             node_incremental = "gn",
-            --             scope_incremental = "gh",
-            --             node_decremental = "ge",
-            --         },
-            --     },
-            --     autotag = {
-            --         enable = true,
-            --     },
-            --     rainbow = {
-            --         enable = true,
-            --         colors = {
-            --             "Gold",
-            --             "Orchid",
-            --             "DodgerBlue",
-            --             -- "Cornsilk",
-            --             -- "Salmon",
-            --             -- "LawnGreen",
-            --         },
-            --         disable = { "html", "jsx" },
-            --     },
+            -- vim.api.nvim_create_autocmd('FileType', {
+            --     pattern = { "rust", "typescript" },
+            --     callback = function(args)
+            --         vim.treesitter.start(args.buf)
+            --         vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            --         vim.wo.foldmethod = 'expr'
+            --         vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            --     end,
             -- })
-            vim.api.nvim_create_autocmd('FileType', {
-                pattern = { "asm", "bash", "c", "cmake", "cpp", "css", "csv", "cuda", "dart", "dockerfile", "editorconfig", "fish", "glsl", "go", "gomod", "html", "ini", "java", "javascript", "javascriptreact", "jsdoc", "json", "json5", "kotlin", "latex", "lua", "make", "markdown", "meson", "odin", "php", "powershell", "prisma", "proto", "python", "r", "ron", "rust", "scss", "slint", "solidity", "sql", "sshconfig", "svelte", "sway", "tmux", "tsx", "typescript", "typescriptreact", "udev", "vala", "vim", "vimdoc", "vue", "wgsl", "yaml", "zig" },
-                callback = function()
-                    vim.treesitter.start()
-                    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-                    vim.wo.foldmethod = 'expr'
-                    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-                end,
-            })
-        end,
+        end
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
