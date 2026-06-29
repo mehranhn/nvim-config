@@ -118,9 +118,8 @@ if not status_ok then
 end
 
 M.capabilities = function()
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    local cap = cmp_nvim_lsp.default_capabilities(capabilities)
-    return vim.tbl_deep_extend("force", cap, require("lsp-file-operations").default_capabilities())
+    local capabilities = require("nvim-file-operations.config").default_capabilities()
+    return cmp_nvim_lsp.default_capabilities(capabilities)
 end
 
 return M
