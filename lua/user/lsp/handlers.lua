@@ -119,7 +119,8 @@ end
 
 M.capabilities = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    return cmp_nvim_lsp.default_capabilities(capabilities)
+    local cap = cmp_nvim_lsp.default_capabilities(capabilities)
+    return vim.tbl_deep_extend("force", cap, require("lsp-file-operations").default_capabilities())
 end
 
 return M

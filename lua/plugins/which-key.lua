@@ -24,7 +24,6 @@ return {
         },
         spec = {
             { "<leader>A", "<cmd>Alpha<cr>", desc = "Alpha" },
-            { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer" },
             { "<leader>w", "<cmd>w!<cr>", desc = "Save" },
             { "<leader>q", "<cmd>q!<cr>", desc = "Quit" },
             { "<leader>h", "<cmd>nohlsearch<cr>", desc = "No Highlight" },
