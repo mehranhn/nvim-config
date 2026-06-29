@@ -16,7 +16,6 @@ return {
                         ["e"] = "none",
                         ["o"] = "open",
                         ["?"] = "show_help",
-
                         ["s"] = "none",
                         ["S"] = "none",
                         ["<C-x>"] = "split_with_window_picker",
