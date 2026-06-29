@@ -2,8 +2,8 @@ if vim.g.neovide then
     vim.g.neovide_refresh_rate = 60
     vim.g.neovide_cursor_vfx_mode = "railgun"
 
-    vim.o.guifont = "monospace:h11.5"
-    -- vim.o.guifont = "Hack Nerd Font:h8"
+    -- vim.o.guifont = "monospace:h11.5"
+    vim.o.guifont = "Hack Nerd Font:h11.5"
     -- vim.o.guifont = "Iosevka:h8"
     -- vim.o.guifont = "Fira Code:h7"
 
@@ -20,3 +20,35 @@ if vim.g.neovide then
     vim.api.nvim_set_keymap("c", "<c-s-v>", "<c-r>+", opts)
     --[[ vim.api.nvim_set_keymap("i", "<c-r>", "<c-v>", opts) ]]
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,27 +27,27 @@ vim.g.maplocalleader = " "
 
 -- Colemak
 -- general
-nxomap("k", "i", {noremap = true})
-nxomap("K", "I", {noremap = true})
-nxomap("i", "<NOP>", {noremap = true})
-nxomap("I", "<NOP>", {noremap = true})
-nxomap("l", "<NOP>", {noremap = true})
-nxomap("L", "<NOP>", {noremap = true})
-nxomap("j", "<NOP>", {noremap = true})
-nxomap("J", "<NOP>", {noremap = true})
+nxomap("k", "i", { noremap = true })
+nxomap("K", "I", { noremap = true })
+nxomap("i", "<NOP>", { noremap = true })
+nxomap("I", "<NOP>", { noremap = true })
+nxomap("l", "<NOP>", { noremap = true })
+nxomap("L", "<NOP>", { noremap = true })
+nxomap("j", "<NOP>", { noremap = true })
+nxomap("J", "<NOP>", { noremap = true })
 keymap("n", "U", "<CMD>redo<CR>", opts)
 -- keymap("n", "<C-r>", "<Nop>", opts)
 keymap("n", ",", "n", opts)
 keymap("n", ".", "N", opts)
 
 -- Delete all keybindings starting with 'i' in Visual mode
-local mappings = vim.api.nvim_get_keymap('v')
+local mappings = vim.api.nvim_get_keymap("v")
 for _, mapping in ipairs(mappings) do
-  if mapping.lhs:sub(1, 1) == 'i' then
-    pcall(vim.api.nvim_del_keymap, 'v', mapping.lhs)
-    pcall(vim.api.nvim_del_keymap, 'x', mapping.lhs)
-    pcall(vim.api.nvim_del_keymap, 's', mapping.lhs)
-  end
+    if mapping.lhs:sub(1, 1) == "i" then
+        pcall(vim.api.nvim_del_keymap, "v", mapping.lhs)
+        pcall(vim.api.nvim_del_keymap, "x", mapping.lhs)
+        pcall(vim.api.nvim_del_keymap, "s", mapping.lhs)
+    end
 end
 
 -- navigation
@@ -108,16 +108,16 @@ keymap("x", "<Tab>", ">gv", opts)
 keymap("x", "<S-Tab>", "<gv", opts)
 
 -- clipboard
-nxmap("<C-p>", "\"ap", opts)
-nxmap("<C-P>", "\"aP", opts)
-nxmap("d", "\"ad", opts)
-nxmap("D", "\"aD", opts)
-nxmap("c", "\"ac", opts)
-nxmap("C", "\"aC", opts)
-nxmap("x", "\"ax", opts)
-nxmap("X", "\"aX", opts)
+nxmap("<C-p>", '"ap', opts)
+nxmap("<C-P>", '"aP', opts)
+nxmap("d", '"ad', opts)
+nxmap("D", '"aD', opts)
+nxmap("c", '"ac', opts)
+nxmap("C", '"aC', opts)
+nxmap("x", '"ax', opts)
+nxmap("X", '"aX', opts)
 
-keymap("c", "<C-p>", "<C-r>\"", opts)
+keymap("c", "<C-p>", '<C-r>"', opts)
 -- keymap("c", "<C-P>", "\"+P", opts)
 
 -- macro
@@ -126,6 +126,3 @@ keymap("", "F", "@f", opts)
 keymap("", "#", "@w", opts)
 keymap("", "$", "@p", opts)
 keymap("", "^", "@g", opts)
-
--- spectre
-keymap("v", "<leader>r", "<ESC><CMD>lua require('spectre').open_visual()<CR>", opts)
