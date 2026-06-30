@@ -30,6 +30,7 @@ return {
                     window = {
                         mappings = {
                             ["/"] = "none",
+                            ["f"] = "none",
                             ["F"] = "fuzzy_finder",
                             ["o"] = "open",
                             ["oc"] = "none",
