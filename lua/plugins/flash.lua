@@ -4,6 +4,10 @@ return {
   ---@type Flash.Config
   opts = {
       labels = "neiotsradhluypfwkmvcxgj",
+      label = {
+          after = false,
+          before = true,
+      },
       modes = {
           char = {
               enabled = false,
