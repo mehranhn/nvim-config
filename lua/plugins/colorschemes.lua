@@ -2,9 +2,10 @@ return {
     {
         "Mofiqul/vscode.nvim",
         priority = 1000,
+        lazy = true,
         opts = {
             -- Alternatively set style in setup
-            style = 'dark',
+            style = "dark",
 
             -- Enable transparent background
             transparent = false,
@@ -25,24 +26,31 @@ return {
                 -- this supports the same val table as vim.api.nvim_set_hl
                 -- use colors from this colorscheme by requiring vscode.colors!
                 --[[ Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true }, ]]
-            }
+            },
         },
-        config = function(_, opts)
-            require('vscode').setup(opts)
-            require('vscode').load()
-        end,
+        -- config = function(_, opts)
+        --     require('vscode').setup(opts)
+        --     require('vscode').load()
+        -- end,
     },
-    {"haishanh/night-owl.vim", lazy = true},
-    {"EdenEast/nightfox.nvim", lazy = true},
-    {"sainnhe/sonokai", lazy = true},
-    {"folke/tokyonight.nvim", lazy = true},
-    {"rose-pine/neovim", name = "rose-pine", lazy = true},
-    {"rebelot/kanagawa.nvim", lazy = true},
-    {"rafamadriz/neon", lazy = true},
-    {"marko-cerovac/material.nvim", opts = {}, lazy = true},
-    {"dracula/vim", lazy = true},
-    {"joshdick/onedark.vim", lazy = true},
-    {"bluz71/vim-nightfly-colors", name = "nightfly", lazy = true},
+    { "haishanh/night-owl.vim", lazy = true },
+    { "EdenEast/nightfox.nvim", lazy = true },
+    { "sainnhe/sonokai",        lazy = true },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        config = function(_, opts)
+            require('tokyonight').setup(opts)
+            vim.cmd.colorscheme("tokyonight-night")
+        end
+    },
+    { "rose-pine/neovim",            name = "rose-pine", lazy = true },
+    { "rebelot/kanagawa.nvim",       lazy = true },
+    { "rafamadriz/neon",             lazy = true },
+    { "marko-cerovac/material.nvim", opts = {},          lazy = true },
+    { "dracula/vim",                 lazy = true },
+    { "joshdick/onedark.vim",        lazy = true },
+    { "bluz71/vim-nightfly-colors",  name = "nightfly",  lazy = true },
 }
 
 -- tokyonight
@@ -61,16 +69,15 @@ return {
 -- material
 -- local status_ok, material = pcall(require, "material")
 -- if status_ok then
-    -- material.setup()
+-- material.setup()
 -- end
 -- vim.g.material_style = "darker"
 
 -- vim.cmd [[
-    -- try
-    -- colorscheme vscode
-    -- catch /^Vim\%((\a\+)\)\=:E185/
-    -- colorscheme default
-    -- set background=dark
-    -- endtry
+-- try
+-- colorscheme vscode
+-- catch /^Vim\%((\a\+)\)\=:E185/
+-- colorscheme default
+-- set background=dark
+-- endtry
 -- ]]
-
