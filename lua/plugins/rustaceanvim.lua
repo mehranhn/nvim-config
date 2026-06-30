@@ -43,14 +43,14 @@ end
 
 return {
     "mrcjkb/rustaceanvim",
-    version = '^6',
+    version = '^9',
     lazy = false,
     config = function()
         vim.g.rustaceanvim = {
             -- Plugin configuration
             tools = {
                 runnables = {
-                    use_telescope = true,
+                    use_telescope = false,
                 },
                 inlay_hints = {
                     --[[ auto = true, ]]

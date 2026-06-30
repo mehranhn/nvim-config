@@ -1,4 +1,5 @@
 require("user");
+vim.loader.enable()
 vim.opt.termguicolors = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

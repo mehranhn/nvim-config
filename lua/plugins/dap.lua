@@ -1,8 +1,9 @@
 return {
-    "theHamsta/nvim-dap-virtual-text",
-    {"leoluz/nvim-dap-go", opts = {}},
+    {"theHamsta/nvim-dap-virtual-text", enabled = false},
+    {"leoluz/nvim-dap-go", enabled = false, opts = {}},
     {
         "mfussenegger/nvim-dap",
+        enabled = false,
         init = function()
             vim.fn.sign_define('DapBreakpoint', {text='', texthl='ErrorMsg', linehl='', numhl=''})
             vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "ErrorMsg", linehl = "", numhl = "" })

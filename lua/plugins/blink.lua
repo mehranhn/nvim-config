@@ -27,17 +27,26 @@ return {
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         keymap = {
-            preset = "default",
-            ["<CR>"] = { "select_and_accept", "fallback" },
+            preset = "enter",
             ["<C-l>"] = { "hide" },
             ["<C-e>"] = { "select_prev" },
             ["<Tab>"] = { "select_next" },
             ["<S-Tab>"] = { "select_prev" },
         },
 
+        cmdline = {
+            keymap = {
+                preset = "cmdline",
+                ["<C-l>"] = { "hide" },
+                ["<C-e>"] = { "select_prev" },
+                ["<C-n>"] = { "select_next" },
+                ["<Tab>"] = { "select_next" },
+                ["<S-Tab>"] = { "select_prev" },
+            },
+        },
+
         -- (Default) Only show the documentation popup when manually triggered
         completion = {
-            list = { selection = { preselect = false } },
             documentation = { auto_show = true },
             ghost_text = { enabled = true },
         },

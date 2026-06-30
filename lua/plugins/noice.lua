@@ -4,6 +4,13 @@ return {
         event = "VeryLazy",
         opts = {
             -- add any options here
+            views = {
+                mini = {
+                    position = {
+                        row = -3,
+                    }
+                }
+            }
         },
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
