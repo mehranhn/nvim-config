@@ -14,27 +14,5 @@ return {
             require("scope").setup(opts)
         end
     },
-    "moll/vim-bbye",
-    "akinsho/toggleterm.nvim",
-    {
-        "ahmedkhalf/project.nvim",
-        config = function()
-            require("project_nvim").setup {
-                on_config_done = nil,
-                manual_mode = false,
-                detection_methods = { "pattern" },
-                -- patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "Cargo.toml", "package.json" },
-                patterns = { ".git" },
-                show_hidden = false,
-                silent_chdir = true,
-                ignore_lsp = {},
-                datapath = vim.fn.stdpath("data"),
-            }
-        end
-    },
-    "antoinemadec/FixCursorHold.nvim", -- This is needed to fix lsp doc highlight
-    "ThePrimeagen/harpoon",
-
-    { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap"} },
     "leoluz/nvim-dap-go",
 };
