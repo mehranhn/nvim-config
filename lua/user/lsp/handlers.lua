@@ -112,14 +112,9 @@ M.on_attach = function(client, bufnr)
     -- lsp_highlight_document(client)
 end
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-    return
-end
-
 M.capabilities = function()
     local capabilities = require("nvim-file-operations.config").default_capabilities()
-    return cmp_nvim_lsp.default_capabilities(capabilities)
+    return require('blink.cmp').get_lsp_capabilities(capabilities);
 end
 
 return M

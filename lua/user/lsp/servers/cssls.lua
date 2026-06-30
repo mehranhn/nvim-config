@@ -1,6 +1,6 @@
 local handlers = require("user.lsp.handlers")
 local capabilities = handlers.capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 vim.lsp.config("cssls", {
     capabilities = capabilities,

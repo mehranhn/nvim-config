@@ -1,11 +1,18 @@
 local handlers = require("user.lsp.handlers")
 
-vim.lsp.config('yamlls', {
+vim.lsp.config("yamlls", {
     capabilities = handlers.capabilities(),
     on_attach = handlers.on_attach,
     settings = {
         yaml = {
-            schemas = require('schemastore').json.schemas(),
+            schemaStore = {
+                -- You must disable built-in schemaStore support if you want to use
+                -- this plugin and its advanced options like `ignore`.
+                enable = false,
+                -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                url = "",
+            },
+            schemas = require("schemastore").yaml.schemas(),
         },
-    }
+    },
 })
