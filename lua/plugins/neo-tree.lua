@@ -8,7 +8,12 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
         config = function()
-            vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle filesystem toggle reveal_force_cwd<CR>", { desc = "NeoTree" })
+            vim.keymap.set(
+                "n",
+                "<leader>e",
+                "<Cmd>Neotree toggle filesystem toggle reveal_force_cwd<CR>",
+                { desc = "NeoTree" }
+            )
 
             require("neo-tree").setup({
                 window = {
@@ -131,6 +136,7 @@ return {
         version = "2.*",
         config = function()
             require("window-picker").setup({
+                selection_chars = "neiotsradhluypfwkmvcxgj",
                 filter_rules = {
                     include_current_win = false,
                     autoselect_one = true,
