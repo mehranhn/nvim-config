@@ -23,6 +23,7 @@ return {
             bufdelete = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
+            notifier = { enabled = true },
             picker = {
                 enabled = true,
                 sources = {
