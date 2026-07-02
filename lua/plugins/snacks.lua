@@ -64,7 +64,7 @@ return {
             { "<leader>aA", function() Snacks.dashboard() end, desc = "Dashboard" },
 
             { "<leader>ca", function() Snacks.bufdelete.all() end, desc = "Close All Buffers" },
-            { "<leader>cA", function() Snacks.bufdelete.other() end, desc = "Close All Buffers" },
+            { "<leader>cA", function() Snacks.bufdelete.other() end, desc = "Close Other Buffers" },
             { "<leader>cb", function() Snacks.picker.buffers() end, desc = "Buffers" },
             { "<leader>cc", function() Snacks.bufdelete() end, desc = "Close Buffer" },
 

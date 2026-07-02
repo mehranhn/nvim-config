@@ -37,7 +37,8 @@ return {
                             ["/"] = "none",
                             ["f"] = "none",
                             ["F"] = "fuzzy_finder",
-                            ["o"] = "open",
+                            ["o"] = "open_with_window_picker",
+                            ["<cr>"] = "open_with_window_picker",
                             ["oc"] = "none",
                             ["od"] = "none",
                             ["og"] = "none",
@@ -73,7 +74,8 @@ return {
                 buffers = {
                     window = {
                         mappings = {
-                            ["o"] = "open",
+                            ["o"] = "open_with_window_picker",
+                            ["<cr>"] = "open_with_window_picker",
                             ["oc"] = "none",
                             ["od"] = "none",
                             ["om"] = "none",
@@ -98,7 +100,8 @@ return {
                     window = {
                         position = "float",
                         mappings = {
-                            ["o"] = "open",
+                            ["o"] = "open_with_window_picker",
+                            ["<cr>"] = "open_with_window_picker",
                             ["oc"] = "none",
                             ["od"] = "none",
                             ["om"] = "none",

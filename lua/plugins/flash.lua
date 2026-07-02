@@ -5,8 +5,8 @@ return {
   opts = {
       labels = "neiotsradhluypfwkmvcxgj",
       label = {
-          after = false,
-          before = true,
+          -- after = false,
+          -- before = true,
       },
       modes = {
           char = {
