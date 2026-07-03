@@ -86,7 +86,6 @@ return {
             { "<leader>nT", function() Snacks.picker.lsp_type_definitions() end, desc = "Type Definitions" },
 
             { "<C-t>", function() Snacks.terminal.toggle(nil, { win = { position = "float", width = 0.9, height = 0.9, border = "rounded" }}) end, desc = "Terminal Float", mode = { "n", "t", "i" } },
-            { "<C-d>", function() Snacks.terminal.toggle(nil, { win = { position = "bottom" }}) end, desc = "Terminal Bottom", mode = { "n", "t", "i" } },
             { "<leader>tt", function() Snacks.terminal.toggle(nil, { win = { position = "float", width = 0.9, height = 0.9, border = "rounded" }}) end, desc = "Terminal Float" },
             { "<leader>tg", function() Snacks.terminal.toggle("lazygit", { win = { position = "float", width = 0.9, height = 0.9, border = "rounded" }}) end, desc = "Lazygit" },
             { "<leader>th", function() Snacks.terminal.toggle(nil, { win = { position = "left" }}) end, desc = "Terminal Left" },
