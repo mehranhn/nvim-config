@@ -40,8 +40,8 @@ return {
                 ["<C-l>"] = { "hide" },
                 ["<C-e>"] = { "select_prev" },
                 ["<C-n>"] = { "select_next" },
-                ["<Tab>"] = { "select_next" },
-                ["<S-Tab>"] = { "select_prev" },
+                -- ["<Tab>"] = { "select_next" },
+                -- ["<S-Tab>"] = { "select_prev" },
             },
         },
 
