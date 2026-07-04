@@ -30,8 +30,8 @@ return {
             preset = "enter",
             ["<C-l>"] = { "hide" },
             ["<C-e>"] = { "select_prev" },
-            ["<Tab>"] = { "select_next" },
-            ["<S-Tab>"] = { "select_prev" },
+            ["<Tab>"] = { "select_next", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "fallback" },
         },
 
         cmdline = {
