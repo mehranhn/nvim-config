@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
         vim.opt_local.conceallevel = 1
-        vim.opt_local.concealcursor = 'i'
+        vim.opt_local.concealcursor = "i"
     end,
 })
 
@@ -56,12 +56,12 @@ vim.api.nvim_create_autocmd("VimResized", {
 })
 
 vim.api.nvim_create_augroup("_highlight_yank", { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
+vim.api.nvim_create_autocmd("TextYankPost", {
     group = "_highlight_yank",
-    desc = 'Hightlight selection on yank',
-    pattern = '*',
+    desc = "Hightlight selection on yank",
+    pattern = "*",
     callback = function()
-        vim.hl.on_yank { higroup = 'IncSearch', timeout = 200 }
+        vim.hl.on_yank({ higroup = "IncSearch", timeout = 200 })
     end,
 })
 

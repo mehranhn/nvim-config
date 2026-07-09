@@ -1,8 +1,8 @@
-require("options");
-require("keymaps");
-require("autocommands");
-require("neovide");
-require("plugins");
-require("user");
+require("options")
+require("keymaps")
+require("autocommands")
+require("neovide")
+require("plugins")
+require("user")
 
-vim.cmd.colorscheme("tokyonight-night");
+vim.cmd.colorscheme("tokyonight-night")
