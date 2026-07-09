@@ -1,6 +1,5 @@
 require("user.lsp.servers.bashls")
 require("user.lsp.servers.buf_ls")
-require("user.lsp.servers.ccls")
 require("user.lsp.servers.clangd")
 require("user.lsp.servers.cmake")
 require("user.lsp.servers.cssls")

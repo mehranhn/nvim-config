@@ -1,24 +1,14 @@
-return {
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        opts = {
-            -- add any options here
-            views = {
-                mini = {
-                    position = {
-                        row = -3,
-                    }
-                }
-            }
-        },
-        dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
+local status_ok, noice = pcall(require, "noice");
+if not status_ok then
+    return;
+end
+
+noice.setup({
+    views = {
+        mini = {
+            position = {
+                row = -3,
+            },
         },
     },
-}
+});

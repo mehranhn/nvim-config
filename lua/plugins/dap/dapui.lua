@@ -1,8 +1,6 @@
-return {
-    "rcarriga/nvim-dap-ui",
-    enabled = false,
-    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
-    opts = {
+local status_ok, dapui = pcall(require, "dapui");
+if status_ok then
+    dapui.setup({
         mappings = {
             -- Use a table to apply multiple mappings
             expand = { "o", "<2-LeftMouse>" },
@@ -11,13 +9,12 @@ return {
             edit = "s",
             repl = "r",
         },
-    },
-    config = function(_, opts)
-        local dapui = require("dapui");
-        local dap = require("dap");
+    });
 
-        dapui.setup(opts);
+    vim.keymap.set("n", "<leader>dt", function() dapui.toggle() end, { desc = "Toggle Dap UI" });
 
+    local status_ok_dap, dap = pcall(require, "dap")
+    if status_ok_dap then
         dap.listeners.after.event_initialized["dapui_config"] = function()
             dapui.open()
         end
@@ -27,14 +24,6 @@ return {
         dap.listeners.before.event_exited["dapui_config"] = function()
             dapui.close()
         end
+    end
+end
 
-        local status_ok, wk = pcall(require, "which-key")
-        if not status_ok then
-            return
-        end
-
-        wk.add({
-            { "<leader>dt", function() dapui.toggle() end, desc = "Toggle Dap UI" },
-        });
-    end,
-}

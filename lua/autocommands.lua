@@ -55,32 +55,6 @@ vim.api.nvim_create_autocmd("VimResized", {
     end,
 })
 
--- Alpha settings
-vim.api.nvim_create_augroup("_alpha", { clear = true })
-vim.api.nvim_create_autocmd("User", {
-    group = "_alpha",
-    pattern = "AlphaReady",
-    callback = function()
-        vim.opt.showtabline = 0
-        vim.api.nvim_create_autocmd("BufUnload", {
-            buffer = 0,
-            callback = function()
-                vim.opt.showtabline = 2
-            end,
-        })
-    end,
-})
-
--- Crates settings
--- vim.api.nvim_create_augroup("_cartes", { clear = true })
--- vim.api.nvim_create_autocmd("FileType", {
---     group = "_cartes",
---     pattern = "toml",
---     callback = function()
---         require("cmp").setup.buffer({ sources = { { name = "crates" } } })
---     end,
--- })
-
 vim.api.nvim_create_augroup("_highlight_yank", { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
     group = "_highlight_yank",

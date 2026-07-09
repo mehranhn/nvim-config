@@ -1,18 +1,28 @@
-return {
-    -- My plugins here
-    "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
-    "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
-    {
-        "tiagovla/scope.nvim",
-        opts = {},
-        config = function (_, opts)
-            vim.opt.sessionoptions = { -- required
-                "buffers",
-                "tabpages",
-                "globals",
-            }
-            require("scope").setup(opts)
-        end
-    },
-    "leoluz/nvim-dap-go",
-};
+require("plugins.install");
+
+require("plugins.neoconf");
+require("plugins.which-key");
+require("plugins.snacks");
+
+require("plugins.autopairs");
+require("plugins.blink");
+require("plugins.bufferline");
+require("plugins.comment");
+require("plugins.conform");
+require("plugins.dial");
+require("plugins.flash");
+require("plugins.gitsigns");
+require("plugins.grug-far");
+require("plugins.image");
+require("plugins.lualine");
+require("plugins.neo-tree");
+require("plugins.noice");
+require("plugins.nvim-file-operations");
+require("plugins.nvim-window-picker");
+require("plugins.project");
+require("plugins.rustaceanvim");
+require("plugins.trouble");
+require("plugins.typescript-tools");
+
+require("plugins.tree-sitter");
+require("plugins.dap");

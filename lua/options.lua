@@ -1,3 +1,5 @@
+vim.loader.enable()
+vim.opt.termguicolors = true
 vim.opt.backup = false                                      -- creates a backup file
 vim.opt.clipboard = "unnamedplus"                           -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 2                                       -- more space in the neovim command line for displaying messages
@@ -37,7 +39,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.listchars = "tab:▷▷⋮"
 vim.opt.mousemodel = "extend"
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 vim.opt.winborder = 'rounded'
@@ -46,6 +48,9 @@ vim.opt.shortmess:append "c"
 
 vim.opt.whichwrap:append "<,>,[,],h,l"
 vim.opt.iskeyword:append "-"
+
+vim.o.timeout = true
+vim.o.timeoutlen = 300
 
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work ]]
 

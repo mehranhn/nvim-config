@@ -1,11 +1,9 @@
-return {
-    "3rd/image.nvim",
-    build = false,
-    dependencies = {
-        "nvim-neo-tree/neo-tree.nvim",
-    },
-    opts = {
-        backend = "sixel",
-        processor = "magick_cli",
-    },
-}
+local status_ok, image = pcall(require, "image");
+if not status_ok then
+    return;
+end
+
+image.setup({
+    backend = "sixel",
+    processor = "magick_cli",
+});

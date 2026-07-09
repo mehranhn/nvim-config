@@ -1,3 +1,8 @@
+local status_ok, conform = pcall(require, "conform");
+if not status_ok then
+    return;
+end
+
 local prettier_filetypes = {
     "javascript", "javascriptreact", "typescript", "typescriptreact",
     "vue", "css", "scss", "less", "html", "json", "yaml",
@@ -14,12 +19,9 @@ for _, ft in ipairs(prettier_filetypes) do
     formatters_by_ft[ft] = { "prettierd", "prettier", stop_after_first = true }
 end
 
-return {
-    "stevearc/conform.nvim",
-    opts = {
-        formatters_by_ft = formatters_by_ft,
-        default_format_opts = {
-            lsp_format = "last",
-        },
-    }
-}
+conform.setup({
+    formatters_by_ft = formatters_by_ft,
+    default_format_opts = {
+        lsp_format = "last",
+    },
+})
