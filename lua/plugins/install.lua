@@ -39,6 +39,8 @@ vim.pack.add({
 
     -- neo-tree
     { src = "https://github.com/nvim-neo-tree/neo-tree.nvim", version = "v3.x" },
+    "https://github.com/Crysthamus/nvim-file-operations",
+    "https://github.com/s1n7ax/nvim-window-picker",
 
     -- programming
     { src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("^9") },
@@ -57,8 +59,6 @@ vim.pack.add({
     "https://github.com/nvim-lualine/lualine.nvim",
     "https://github.com/folke/neoconf.nvim",
     "https://github.com/folke/noice.nvim",
-    "https://github.com/Crysthamus/nvim-file-operations",
-    "https://github.com/s1n7ax/nvim-window-picker",
     "https://github.com/DrKJeff16/project.nvim",
     "https://github.com/b0o/schemastore.nvim",
     "https://github.com/folke/snacks.nvim",
