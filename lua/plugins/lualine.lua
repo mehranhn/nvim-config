@@ -33,8 +33,7 @@ local mode = {
 
 local filetype = {
     "filetype",
-    icons_enabled = false,
-    icon = nil,
+    icons_enabled = true,
 }
 
 local branch = {
@@ -60,7 +59,7 @@ local lsp_status = {
         separator = " ",
     },
     -- List of LSP names to ignore (e.g., `null-ls`):
-    ignore_lsp = {},
+    ignore_lsp = { "typos_lsp" },
     -- Display the LSP name
     show_name = true,
 }
