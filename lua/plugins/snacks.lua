@@ -31,7 +31,7 @@ snacks.setup({
     bufdelete = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
-    notifier = { enabled = true },
+    notifier = { enabled = false },
     picker = {
         enabled = true,
         sources = {

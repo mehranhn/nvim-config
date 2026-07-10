@@ -1,6 +1,6 @@
-local status_ok, lualine = pcall(require, "lualine");
+local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
-    return;
+    return
 end
 
 local hide_in_width = function()
@@ -48,6 +48,23 @@ local location = {
     padding = 0,
 }
 
+local lsp_status = {
+    "lsp_status",
+    icon = "", -- f013
+    symbols = {
+        -- Standard unicode symbols to cycle through for LSP progress:
+        spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+        -- Standard unicode symbol for when LSP is done:
+        done = "✓",
+        -- Delimiter inserted between LSP names:
+        separator = " ",
+    },
+    -- List of LSP names to ignore (e.g., `null-ls`):
+    ignore_lsp = {},
+    -- Display the LSP name
+    show_name = true,
+}
+
 -- cool function for progress
 local progress = function()
     local current_line = vim.fn.line(".")
@@ -74,7 +91,7 @@ lualine.setup({
     sections = {
         lualine_a = { branch, diagnostics },
         lualine_b = { mode },
-        lualine_c = {},
+        lualine_c = { lsp_status },
         -- lualine_x = { "encoding", "fileformat", "filetype" },
         lualine_x = { diff, spaces, "encoding", filetype },
         lualine_y = { location },
@@ -88,6 +105,13 @@ lualine.setup({
         lualine_y = {},
         lualine_z = {},
     },
-    tabline = {},
+    -- tabline = {
+    --     lualine_a = { "buffers" },
+    --     lualine_b = { "branch" },
+    --     lualine_c = { "filename" },
+    --     lualine_x = {},
+    --     lualine_y = {},
+    --     lualine_z = { "tabs" },
+    -- },
     extensions = {},
-});
+})

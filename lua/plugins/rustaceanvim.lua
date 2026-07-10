@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>oF", function() vim.cmd.RustLsp { 'flyCheck', 'clear' } end, { buf = bufnr, desc = "flyCheck clear" });
     vim.keymap.set("n", "<leader>oQ", function() vim.cmd.RustAnalyzer { 'restart' } end, { buf = bufnr, desc = "Restart" });
     vim.keymap.set("n", "<leader>o1", function() vim.cmd.RustAnalyzer { 'config', '{ check = { command = \"check\" } }' } end, { buf = bufnr, desc = "Check command: check" });
-    vim.keymap.set(bufnr, "n", "<leader>o2", function() vim.cmd.RustAnalyzer { 'config', '{ check = { command = \"clippy\" } }' } end, { buf = bufnr, desc = "Check command: clippy" });
+    vim.keymap.set("n", "<leader>o2", function() vim.cmd.RustAnalyzer { 'config', '{ check = { command = \"clippy\" } }' } end, { buf = bufnr, desc = "Check command: clippy" });
 end
 
 vim.g.rustaceanvim = {

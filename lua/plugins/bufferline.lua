@@ -6,8 +6,8 @@ end
 bufferline.setup({
     options = {
         numbers = "none",              -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-        close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-        right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+        close_command = function(bufnum) Snacks.bufdelete(bufnum) end, -- can be a string | function, see "Mouse actions"
+        right_mouse_command = function(bufnum) Snacks.bufdelete(bufnum) end, -- can be a string | function, see "Mouse actions"
         left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
         middle_mouse_command = nil,    -- can be a string | function, see "Mouse actions"
         -- NOTE: this plugin is designed with this icon in mind,
@@ -58,7 +58,7 @@ bufferline.setup({
         --     return true
         --   end
         -- end,
-        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        offsets = { { filetype = "neo-tree", text = "", padding = 1 } },
         show_buffer_icons = true,
         show_buffer_close_icons = true,
         show_close_icon = true,
