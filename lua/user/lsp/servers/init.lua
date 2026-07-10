@@ -24,7 +24,6 @@ require("user.lsp.servers.yamlls")
 
 -- vim.lsp.enable('bashls')
 -- vim.lsp.enable('buf_ls')
--- vim.lsp.enable('ccls')
 vim.lsp.enable('clangd')
 vim.lsp.enable('typos_lsp')
 -- vim.lsp.enable('cmake')
