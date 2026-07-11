@@ -7,6 +7,7 @@ end
 flash.setup({
     labels = "neiotsradhluypfwkmvcxgj",
     label = {
+        uppercase = false,
         -- after = false,
         -- before = true,
     },
