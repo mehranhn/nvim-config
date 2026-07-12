@@ -1,6 +1,6 @@
-local status_ok, snacks = pcall(require, "snacks");
+local status_ok, snacks = pcall(require, "snacks")
 if not status_ok then
-    return;
+    return
 end
 
 snacks.setup({
@@ -67,7 +67,7 @@ snacks.setup({
     },
     quickfile = { enabled = true },
     terminal = { enabled = true },
-});
+})
 
 vim.keymap.set("n", "<leader>aA", function() Snacks.dashboard() end, { desc = "Dashboard" });
 
