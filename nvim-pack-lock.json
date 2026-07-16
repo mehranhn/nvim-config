@@ -134,6 +134,10 @@
       "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
+    "nvim-treesitter-textobjects": {
+      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
     "nvim-ts-autotag": {
       "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",
       "src": "https://github.com/windwp/nvim-ts-autotag"
@@ -160,7 +164,7 @@
     },
     "project.nvim": {
       "rev": "15915c357667fbe93568e12a64621f58c8fe21d7",
-      "src": "https://github.com/DrKJeff16/project.nvim"
+      "src": "https://github.com/ahmedkhalf/project.nvim"
     },
     "root_swapper.nvim": {
       "rev": "304a0a76482dfd79c893aaff2c4628151a5ef55e",
@@ -174,6 +178,10 @@
     "schemastore.nvim": {
       "rev": "e954496f8ef22904e8a84f5078f4a110fdc7a0d3",
       "src": "https://github.com/b0o/schemastore.nvim"
+    },
+    "sidekick.nvim": {
+      "rev": "208e1c5b8170c01fd1d07df0139322a76479b235",
+      "src": "https://github.com/folke/sidekick.nvim"
     },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",

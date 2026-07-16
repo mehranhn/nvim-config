@@ -1,6 +1,9 @@
-local status_ok, project = pcall(require, "project");
+local status_ok, project = pcall(require, "project_nvim")
 if not status_ok then
-    return;
+    return
 end
 
-project.setup();
+project.setup({
+    detection_methods = { "pattern" },
+    ignore_lsp = { "typos_lsp" },
+})

@@ -23,6 +23,7 @@ require("plugins.nvim-file-operations");
 require("plugins.nvim-window-picker");
 require("plugins.project");
 require("plugins.rustaceanvim");
+require("plugins.sidekick");
 require("plugins.trouble");
 require("plugins.typescript-tools");
 

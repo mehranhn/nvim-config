@@ -23,6 +23,7 @@ vim.pack.add({
     "https://github.com/romus204/tree-sitter-manager.nvim",
     "https://github.com/mizlan/iswap.nvim",
     "https://github.com/windwp/nvim-ts-autotag",
+    "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 
     -- dap
     -- "https://github.com/mfussenegger/nvim-dap",
@@ -46,6 +47,9 @@ vim.pack.add({
     { src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("^9") },
     "https://github.com/pmizio/typescript-tools.nvim",
 
+    -- AI
+    -- "https://github.com/folke/sidekick.nvim",
+
     -- general
     "https://github.com/windwp/nvim-autopairs",
     "https://github.com/akinsho/bufferline.nvim",
@@ -60,7 +64,7 @@ vim.pack.add({
     "https://github.com/folke/neoconf.nvim",
     -- "https://github.com/folke/noice.nvim",
     "https://github.com/j-hui/fidget.nvim",
-    "https://github.com/DrKJeff16/project.nvim",
+    "https://github.com/ahmedkhalf/project.nvim",
     "https://github.com/b0o/schemastore.nvim",
     "https://github.com/folke/snacks.nvim",
     "https://github.com/folke/trouble.nvim",
