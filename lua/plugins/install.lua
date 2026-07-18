@@ -64,7 +64,6 @@ vim.pack.add({
     "https://github.com/folke/neoconf.nvim",
     -- "https://github.com/folke/noice.nvim",
     "https://github.com/j-hui/fidget.nvim",
-    "https://github.com/ahmedkhalf/project.nvim",
     "https://github.com/b0o/schemastore.nvim",
     "https://github.com/folke/snacks.nvim",
     "https://github.com/folke/trouble.nvim",
