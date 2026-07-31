@@ -42,7 +42,6 @@ vim.opt.foldmethod = "expr"
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
-vim.opt.winborder = 'rounded'
 
 vim.opt.shortmess:append "c"
 
@@ -53,6 +52,10 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work ]]
+
+if vim.fn.exists("&winborder") == 1 then
+    vim.opt.winborder = "rounded"
+end
 
 local status_ok, ui2 = pcall(require, "vim._core.ui2");
 if status_ok then
