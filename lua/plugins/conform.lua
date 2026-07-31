@@ -25,3 +25,6 @@ conform.setup({
         lsp_format = "last",
     },
 })
+
+vim.keymap.set("n", "<leader>nf", function() conform.format() end, { desc = "Format" })
+vim.keymap.set("n", "<leader>nF", function() conform.format({ async = true }) end, { desc = "Format Async" })
