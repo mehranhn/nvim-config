@@ -1,5 +1,4 @@
 vim.loader.enable()
-require('vim._core.ui2').enable({})
 vim.opt.termguicolors = true
 vim.opt.backup = false                                      -- creates a backup file
 vim.opt.clipboard = "unnamedplus"                           -- allows neovim to access the system clipboard
@@ -54,3 +53,8 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work ]]
+
+local status_ok, ui2 = pcall(require, "vim._core.ui2");
+if status_ok then
+    ui2.enable({})
+end
